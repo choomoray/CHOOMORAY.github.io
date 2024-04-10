@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://choomoray.github.io/2024/04/04/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%20Hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://choomoray.github.io/2024/04/14/photoshop%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</loc>
     
     <lastmod>2024-04-10</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://choomoray.github.io/2024/04/14/photoshop%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</loc>
+    <loc>https://choomoray.github.io/2024/04/04/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%20Hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2024-04-10</lastmod>
     
@@ -72,6 +72,48 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2024-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2024-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/Blog/</loc>
+    <lastmod>2024-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/Hexo/</loc>
+    <lastmod>2024-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/NodeJS/</loc>
+    <lastmod>2024-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/Git/</loc>
+    <lastmod>2024-04-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://choomoray.github.io/tags/51/</loc>
@@ -136,59 +178,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://choomoray.github.io/tags/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2024-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/tags/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2024-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/tags/Blog/</loc>
-    <lastmod>2024-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/tags/Hexo/</loc>
-    <lastmod>2024-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/tags/NodeJS/</loc>
-    <lastmod>2024-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/tags/Git/</loc>
-    <lastmod>2024-04-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://choomoray.github.io/categories/51/</loc>
+    <loc>https://choomoray.github.io/categories/%E5%85%B6%E5%AE%83/</loc>
     <lastmod>2024-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://choomoray.github.io/categories/%E5%85%B6%E5%AE%83/</loc>
+    <loc>https://choomoray.github.io/categories/51/</loc>
     <lastmod>2024-04-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
