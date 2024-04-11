@@ -5,8 +5,8 @@ https://choomoray.github.io/images/OpenHarmony/%E5%9F%BA%E7%A1%80/1%20Helloword/
 https://choomoray.github.io/images/OpenHarmony/%E5%9F%BA%E7%A1%80/1%20Helloword/entry/src/main/resources/zh_CN/element/string.json
 https://choomoray.github.io/images/OpenHarmony/%E5%9F%BA%E7%A1%80/1%20Helloword/entry/src/main/resources/en_US/element/string.json
 https://choomoray.github.io/images/OpenHarmony/%E5%9F%BA%E7%A1%80/1%20Helloword/entry/src/main/resources/base/profile/main_pages.json
-https://choomoray.github.io/images/OpenHarmony/%E5%9F%BA%E7%A1%80/1%20Helloword/entry/src/main/resources/base/element/color.json
 https://choomoray.github.io/images/OpenHarmony/%E5%9F%BA%E7%A1%80/1%20Helloword/entry/src/main/resources/base/element/string.json
+https://choomoray.github.io/images/OpenHarmony/%E5%9F%BA%E7%A1%80/1%20Helloword/entry/src/main/resources/base/element/color.json
 https://choomoray.github.io/images/OpenHarmony/%E5%9F%BA%E7%A1%80/1%20Helloword/AppScope/resources/base/element/string.json
 https://choomoray.github.io/images/51/%E5%9F%BA%E7%A1%80/9-1%20%E6%97%B6%E9%92%9F%E9%A1%B9%E7%9B%AE/%E6%97%B6%E9%92%9F.html
 https://choomoray.github.io/images/51/%E5%9F%BA%E7%A1%80/9-1%20%E6%97%B6%E9%92%9F%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B.html
