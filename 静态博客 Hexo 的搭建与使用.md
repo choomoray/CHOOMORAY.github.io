@@ -1,7 +1,7 @@
 ---
 title: 静态博客 Hexo 的搭建与使用
-date: 2023-10-14
-updated: 2023-10-17
+date: 2024-4-4
+updated: 
 tags: 
   - 安装配置
   - 使用教程
@@ -10,72 +10,152 @@ tags:
   - NodeJS
   - Git
 categories: 
-  - 笔记
-cover: ../images/2023/静态博客Hexo安装使用教程/封面.webp
+  - 其它
+cover: https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/静态博客Hexo安装使用教程/封面.png?raw=true
 ---
 
 
 
-> **Hexo** + **Github** 静态博客搭建，好处是不需要购买域名、服务器资源，也不需要繁琐的备案，从难易程度上静态博客的搭建是比动态的要简单些的，唯一的坏处可能就是在其他设备上只能访问不能修改吧，问题不大。
-
-Hexo 静态博客安装需要以下几个必要插件：`NodeJS`、`Git`、`Hexo`
-
-NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
 
 
+使用`Hexo`+`Github` 静态博客搭建，好处是不需要购买域名、服务器资源，也不需要繁琐的备案，从难易程度上静态博客的搭建是比动态的要简单些的，唯一的坏处可能就是在其他设备上只能访问不能修改吧，问题不大。
 
-# NodeJS 安装 & 环境搭建
+* **Hexo 静态博客安装需要以下几个必要插件：`NodeJS`、`Git`、`Hexo`**
 
-> **NodeJS** 的安装说实在搞得头大，总是莫名其妙的出现各种问题，像 cnpm 系统不识别之类的，总之就是非常头大，不过还好，总算是找到了一个没有任何报错的安装方法→ [BV19F411t7zX](https://www.bilibili.com/video/BV19F411t7zX/?vd_source=b4e7a930b6168115887cecaf26f330e6)。
+* NodeJS 是 Hexo 的必要插件，而 Git 是推送到 Github 的必要插件
+
+----
 
 
 
-## 下载 NodeJS
+# 写博客
 
-[NodeJS 官网](https://nodejs.cn/download/) 下载对应版本，这里使用的是 Windows-64 安装包
-
-![NodeJS官网下载对应版本](../images/2023/静态博客Hexo安装使用教程/NodeJS版本选择.png)
-
-解压后新建两个文件夹：用来放缓存文件的 `node_cache` 和用来放系统全局文件的 `node_global`
+`Hexo`提供了诸多功能，需要在文章中事先写好
 
 
 
-## 配置环境变量
+## 文章信息
 
-在**系统变量**中新建一个  `NODE_HOME`
+在文章开头使用`---`可填写文章信息
 
-![](../images/2023/静态博客Hexo安装使用教程/配置环境变量.png)
+```yaml
+---
+title: 		# 文章标题
+date: 		# 创建时间
+updated: 	# 修改时间
+tags: 		# 标签 # 多个标签使用 - 隔开
+  - tag1
+  - tag2
+  - ...
+categories:	# 类别 # 同标签，但有上下级关系
+  - categories1
+  - categories2
+  - ...
+cover: https://xxx.png # 封面图片
+---
 
-然后再从**系统变量**的 `PATH` 中添加下面三段
+# 写法				# 解释
+title				【必需】文章标题
+date				【必需】文章创建日期
+updated				【可选】文章更新日期
+tags				【可选】文章标签
+categories			【可选】文章分类
+keywords			【可选】文章关键字
+description			【可选】文章描述
+top_img				【可选】文章顶部图片
+cover				【可选】文章缩略图(如果没有设置top_img,文章页顶部将显示缩略图，可设为false/图片地址/留空)
+comments			【可选】显示文章评论模块(默认 true)
+toc				【可选】显示文章TOC(默认为设置中toc的enable配置)
+toc_number			【可选】显示toc_number(默认为设置中toc的number配置)
+toc_style_simple		【可选】显示 toc 简洁模式
+copyright			【可选】显示文章版权模块(默认为设置中post_copyright的enable配置)
+copyright_author		【可选】文章版权模块的文章作者
+copyright_author_href		【可选】文章版权模块的文章作者链接
+copyright_url			【可选】文章版权模块的文章连结链接
+copyright_info			【可选】文章版权模块的版权声明文字
+mathjax				【可选】显示mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false )
+katex				【可选】显示 katex (当设置 katex 的 per_page: false 时，才需要配置，默认 false )
+aplayer				【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置
+highlight_shrink		【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)
+aside				【可选】显示侧边栏 (默认 true)
+abcjs				【可选】加载 abcjs (当设置 abcjs 的 per_page: false 时，才需要配置，默认 false )
 
 ```
-%NODE_HOME%
-%NODE_HOME%\node_cache
-%NODE_HOME%\node_global
+
+
+
+
+
+## 博客样式
+
+
+
+### 提示标签
+
+[butterfly主题](https://butterfly.js.org/posts/2df239ce/#Note-Bootstrap-Callout) 提供了非常多的提示标签样式：
+
+> **图标样式：none、default、primary、success、info、warning、danger**
+>
+> **标签样式：simple、modern、flat、disabled、no-icon**
+
+
+
+```yaml
+{% note xxx simple %}
+
+{% endnote %}
 ```
 
-以上工作完成后，再终端中输入 `node -v`、`npm -v` 测试环境变量是否配置成功
 
 
 
-## 配置 npm & cnpm
+{% note default simple %}
 
-```
-// 配置 npm 全局
-npm config set prefix "node_global 的路径"
-// 配置 npm 缓存
-npm config set cache "node_cache 的路径"
-// 国内下载慢所以用阿里的镜像下载
-npm config set registry https://registry.npm.taobao.org
-```
+default simple
 
-没有报错就说明已经成功配置了，然后就可以下载镜像文件了
+{% endnote %}
 
-```
-npm install -g cnpm
-```
+{% note primary modern %}
 
-安装成功后输入 `cnpm -v` 测试是否成功，在 node_global 文件夹下也可以看到 cnpm 文件，NodeJS 的安装配置到此完成！
+primary modern
+
+{% endnote %}
+
+{% note success flat %}
+
+success flat
+
+{% endnote %}
+
+{% note info disabled %}
+
+info disabled
+
+{% endnote %}
+
+{% note warning modern %}
+
+warning modern
+
+{% endnote %}
+
+{% note danger modern %}
+
+danger modern
+
+{% endnote %}
+
+{% note no-icon %}
+
+none no-icon
+
+{% endnote %}
+
+
+
+{% note 'fab fa-cc-visa' simple %}
+你是刷 Visa 还是 UnionPay
+{% endnote %}
 
 ----
 
@@ -83,98 +163,7 @@ npm install -g cnpm
 
 
 
-# Git 安装 & 使用
-
-> [Git](https://git-scm.com/downloads) 直接下载对应版本安装即可，一直下一步傻瓜式安装
-
-
-
-## Git 使用
-
-> Git的使用在以后用到的时候再进行更新，目前仅为上传不同名文件夹内容到远程仓库的不同分支中，方法也非常简单，使用Github桌面端就可以进行操作，把仓库克隆到要上传的文件夹父目录，克隆完成后把名字一改再重新寻址就可以了
-
-----
-
-
-
-
-
-# Hexo 安装 & 使用
-
-## Hexo 安装
-
-> Hexo 官网有提供的详尽的 [安装使用文档](https://hexo.io/zh-cn/docs/)，需要注意的是，Hexo 需要搭配 Git 和 NodeJS 使用，在安装之前需要把前面两个提前安装！也可以参考→[BV1Yb411a7ty](https://www.bilibili.com/video/BV1Yb411a7ty/?vd_source=b4e7a930b6168115887cecaf26f330e6)
-
-Hexo 使用的是命令行进行操作，首先**安装 Hexo**，hexo -v 测试安装
-
-```
-cnpm install -g hexo-cli
-```
-
-在博客文件夹根目录下**初始化 Hexo**
-
-```
-hexo init
-npm install	// 初始化成功了就不需要再执行这步了
-```
-
-
-
-## Hexo 基本操作
-
-|     功能     |    代码    |   代码全称    |
-| :----------: | :--------: | :-----------: |
-| 启动本地预览 |   hexo s   |  hexo server  |
-| 清理本地缓存 | hexo clean |  hexo clean   |
-| 生成HTML文件 |   hexo g   | hexo generate |
-|  推送到云端  |   hexo d   |  hexo deploy  |
-| 创建新的文章 |   hexo n   |   hexo new    |
-
-
-
-## 文章「头文件」
-
-使用 `hexo new` 创建新的文章，Hexo 会自动帮我们在文章中生成一个「头文件」，包含各种文章信息：文章标题、创建时间、修改时间、标签、分类、封面等，需要自己进行完善，[password](#jump_文章加密) 不属于 Hexo 自带，需要自行安装使用
-
-```
-title: 静态博客 Hexo 的搭建与使用教程	// 文章标题
-date: 2023-10-14	// 创建时间
-updated: 2023-10-16	// 修改时间
-tags: 			// 标签，多个标签也可以用[a,b]
-  - 安装配置
-  - 使用教程	
-categories: 		// 分类
-	- 学习	// 父类
-	- 心得	// 子类
-cover: https://url	// 文章封面
-password: 12345		// 密码
-```
-
-
-
-## Blog 部署到 Github
-
-首先再本目录下安装部署插件
-
-```
-cnpm install --save hexo-deployer-git
-```
-
-插件装完后去 `_config.yml` 里进行必要配置！在文件最下面修改 `# Deployment` 里面的信息
-
-```
-type: git
-repo: https://github.com/choomoray/choomoray.github.io.git
-branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
-```
-
-----
-
-
-
-
-
-# Hexo 主题 & 美化（待完成......）
+# 主题 & 美化（待完成......）
 
 在 [Butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 下载好压缩包，解压到 Theme 文件夹，然后在 `_config.yml` 里把默认的 Theme 替换成需要修改的主题文件夹名就大功告成了！
 
@@ -182,13 +171,6 @@ branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
 
 > 主题美化可以参考作者写的[详细文档](https://butterfly.js.org/)
 >
-> 这里就根据我自己的个人喜好来进行优化，大致分为几大块：
-
-![网站基本信息](../images/2023/静态博客Hexo安装使用教程/网站基本信息.png)
-
-![主页基本信息](../images/2023/静态博客Hexo安装使用教程/主页基本信息.png)
-
-![文章页基本信息](../images/2023/静态博客Hexo安装使用教程/文章页基本信息.png)
 
 
 
@@ -386,7 +368,7 @@ encrypt: # hexo-blog-encrypt
 password: 123456
 ```
 
-![](../images/2023/静态博客Hexo安装使用教程/访问内容需要密码.png)
+![访问内容需要密码](https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/静态博客Hexo安装使用教程/访问内容需要密码.png?raw=true)
 
 
 
@@ -408,5 +390,175 @@ post_asset_folder: true
 
 需要注意的是：图片路径必须使用`/`
 
+
+
+## 页面锚点
+
+开启页面锚点后，当你在进行滚动时，页面链接会根据标题ID进行替换
+(注意: 每替换一次，会留下一个历史记录。所以如果一篇文章有很多锚点的话，网页的历史记录会很多。)
+
+修改 `主题配置文件`
+
+```yaml
+# anchor
+anchor:
+  # when you scroll, the URL will update according to header id.
+  auto_update: false
+  # Click the headline to scroll and update the anchor
+  click_to_scroll: false
+```
+
+
+
 ----
+
+# 环境搭建
+
+## NodeJS
+
+> **NodeJS** 的安装说实在搞得头大，总是莫名其妙的出现各种问题，像 cnpm 系统不识别之类的，总之就是非常头大，不过还好，总算是找到了一个没有任何报错的安装方法→ [BV19F411t7zX](https://www.bilibili.com/video/BV19F411t7zX/?vd_source=b4e7a930b6168115887cecaf26f330e6)。
+
+
+
+### 下载 NodeJS
+
+[NodeJS 官网](https://nodejs.cn/download/) 下载对应版本，这里使用的是 Windows-64 安装包
+
+![NodeJS版本选择](https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/静态博客Hexo安装使用教程/NodeJS版本选择.png?raw=true)
+
+解压后新建两个文件夹：用来放缓存文件的 `node_cache` 和用来放系统全局文件的 `node_global`
+
+
+
+### 配置环境变量
+
+在**系统变量**中新建一个  `NODE_HOME`
+
+![配置环境变量](https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/静态博客Hexo安装使用教程/配置环境变量.png?raw=true)
+
+然后再从**系统变量**的 `PATH` 中添加下面三段
+
+```
+%NODE_HOME%
+%NODE_HOME%\node_cache
+%NODE_HOME%\node_global
+```
+
+以上工作完成后，再终端中输入 `node -v`、`npm -v` 测试环境变量是否配置成功
+
+
+
+### 配置 npm & cnpm
+
+```
+// 配置 npm 全局
+npm config set prefix "node_global 的路径"
+// 配置 npm 缓存
+npm config set cache "node_cache 的路径"
+// 国内下载慢所以用阿里的镜像下载
+npm config set registry https://registry.npm.taobao.org
+```
+
+没有报错就说明已经成功配置了，然后就可以下载镜像文件了
+
+```
+npm install -g cnpm
+```
+
+安装成功后输入 `cnpm -v` 测试是否成功，在 node_global 文件夹下也可以看到 cnpm 文件，NodeJS 的安装配置到此完成！
+
+----
+
+
+
+
+
+## Git
+
+> [Git](https://git-scm.com/downloads) 直接下载对应版本安装即可，一直下一步傻瓜式安装
+
+
+
+### Git 使用
+
+> Git的使用在以后用到的时候再进行更新，目前仅为上传不同名文件夹内容到远程仓库的不同分支中，方法也非常简单，使用Github桌面端就可以进行操作，把仓库克隆到要上传的文件夹父目录，克隆完成后把名字一改再重新寻址就可以了
+
+----
+
+
+
+
+
+## Hexo
+
+### Hexo 安装
+
+> Hexo 官网有提供的详尽的 [安装使用文档](https://hexo.io/zh-cn/docs/)，需要注意的是，Hexo 需要搭配 Git 和 NodeJS 使用，在安装之前需要把前面两个提前安装！也可以参考→[BV1Yb411a7ty](https://www.bilibili.com/video/BV1Yb411a7ty/?vd_source=b4e7a930b6168115887cecaf26f330e6)
+
+Hexo 使用的是命令行进行操作，首先**安装 Hexo**，hexo -v 测试安装
+
+```
+cnpm install -g hexo-cli
+```
+
+在博客文件夹根目录下**初始化 Hexo**
+
+```
+hexo init
+npm install	// 初始化成功了就不需要再执行这步了
+```
+
+
+
+### Hexo 基本操作
+
+|     功能     |    代码    |   代码全称    |
+| :----------: | :--------: | :-----------: |
+| 启动本地预览 |   hexo s   |  hexo server  |
+| 清理本地缓存 | hexo clean |  hexo clean   |
+| 生成HTML文件 |   hexo g   | hexo generate |
+|  推送到云端  |   hexo d   |  hexo deploy  |
+| 创建新的文章 |   hexo n   |   hexo new    |
+
+
+
+### 文章「头文件」
+
+使用 `hexo new` 创建新的文章，Hexo 会自动帮我们在文章中生成一个「头文件」，包含各种文章信息：文章标题、创建时间、修改时间、标签、分类、封面等，需要自己进行完善，[password](#jump_文章加密) 不属于 Hexo 自带，需要自行安装使用
+
+```
+title: 静态博客 Hexo 的搭建与使用教程	// 文章标题
+date: 2023-10-14	// 创建时间
+updated: 2023-10-16	// 修改时间
+tags: 			// 标签，多个标签也可以用[a,b]
+  - 安装配置
+  - 使用教程	
+categories: 		// 分类
+	- 学习	// 父类
+	- 心得	// 子类
+cover: https://url	// 文章封面
+password: 12345		// 密码
+```
+
+
+
+### Blog 部署到 Github
+
+首先再本目录下安装部署插件
+
+```
+cnpm install --save hexo-deployer-git
+```
+
+插件装完后去 `_config.yml` 里进行必要配置！在文件最下面修改 `# Deployment` 里面的信息
+
+```
+type: git
+repo: https://github.com/choomoray/choomoray.github.io.git
+branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
+```
+
+----
+
+
 
