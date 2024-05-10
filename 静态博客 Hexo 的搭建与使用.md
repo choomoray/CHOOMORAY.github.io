@@ -11,7 +11,7 @@ tags:
   - Git
 categories: 
   - 其它
-cover: https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/静态博客Hexo安装使用教程/封面.png?raw=true
+cover: https://github.com/choomoray/choomoray.github.io/blob/image/2023/静态博客Hexo安装使用教程/封面.png?raw=true
 ---
 
 
@@ -36,6 +36,10 @@ cover: https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/�
 
 在文章最上方使用`---`可填写文章页面配置信息Front-matter
 
+{%tabs 文章页面配置%}
+
+<!-- tab 预览-->
+
 ```yaml
 ---
 title: 		# 文章标题
@@ -51,37 +55,120 @@ categories:	# 类别 # 同标签，但有上下级关系
   - ...
 cover: https://xxx.png # 封面图片
 ---
-
-# 写法				# 解释
-title				【必需】文章标题
-date				【必需】文章创建日期
-updated				【可选】文章更新日期
-tags				【可选】文章标签
-categories			【可选】文章分类
-keywords			【可选】文章关键字
-description			【可选】文章描述
-top_img				【可选】文章顶部图片
-cover				【可选】文章缩略图(如果没有设置top_img,文章页顶部将显示缩略图，可设为false/图片地址/留空)
-comments			【可选】显示文章评论模块(默认 true)
-toc				【可选】显示文章TOC(默认为设置中toc的enable配置)
-toc_number			【可选】显示toc_number(默认为设置中toc的number配置)
-toc_style_simple		【可选】显示 toc 简洁模式
-copyright			【可选】显示文章版权模块(默认为设置中post_copyright的enable配置)
-copyright_author		【可选】文章版权模块的文章作者
-copyright_author_href		【可选】文章版权模块的文章作者链接
-copyright_url			【可选】文章版权模块的文章连结链接
-copyright_info			【可选】文章版权模块的版权声明文字
-mathjax				【可选】显示mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false )
-katex				【可选】显示 katex (当设置 katex 的 per_page: false 时，才需要配置，默认 false )
-aplayer				【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置
-highlight_shrink		【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)
-aside				【可选】显示侧边栏 (默认 true)
-abcjs				【可选】加载 abcjs (当设置 abcjs 的 per_page: false 时，才需要配置，默认 false )
-password			【可选】文章密码
-
 ```
 
+<!--endtab--> <!-- tab 参数-->
 
+<table>
+    <tr>
+        <td>写法</td>
+        <td>解释</td>
+    </tr>
+    <tr>
+        <td>title</td>
+        <td>【必需】文章标题</td>
+    </tr>
+    <tr>
+        <td>date</td>
+        <td>【必需】文章创建日期</td>
+    </tr>
+    <tr>
+        <td>updated</td>
+        <td>【可选】文章更新日期</td>
+    </tr>
+    <tr>
+        <td>tags</td>
+        <td>【可选】文章标签</td>
+    </tr>
+    <tr>
+        <td>categories</td>
+        <td>【可选】文章分类</td>
+    </tr>
+    <tr>
+        <td>keywords</td>
+        <td>【可选】文章关键字</td>
+    </tr>
+    <tr>
+        <td>description</td>
+        <td>【可选】文章描述</td>
+    </tr>
+    <tr>
+        <td>top_img</td>
+        <td>【可选】文章顶部图片</td>
+    </tr>
+    <tr>
+        <td>cover</td>
+        <td>【可选】文章缩略图(如果没有设置top_img,文章页顶部将显示缩略图，可设为false/图片地址/留空)</td>
+    </tr>
+    <tr>
+        <td>comments</td>
+        <td>【可选】显示文章评论模块(默认 true)</td>
+    </tr>
+    <tr>
+        <td>toc</td>
+        <td>【可选】显示文章TOC(默认为设置中toc的enable配置)</td>
+    </tr>
+    <tr>
+        <td>toc_number</td>
+        <td>【可选】显示toc_number(默认为设置中toc的number配置)</td>
+    </tr>
+    <tr>
+        <td>toc_style_simple</td>
+        <td>【可选】显示 toc 简洁模式</td>
+    </tr>
+    <tr>
+        <td>copyright</td>
+        <td>【可选】显示文章版权模块(默认为设置中post_copyright的enable配置)</td>
+    </tr>
+    <tr>
+        <td>copyright_author</td>
+        <td>【可选】文章版权模块的文章作者</td>
+    </tr>
+    <tr>
+        <td>copyright_author_href</td>
+        <td>【可选】文章版权模块的文章作者链接</td>
+    </tr>
+    <tr>
+        <td>copyright_url</td>
+        <td>【可选】文章版权模块的文章连结链接</td>
+    </tr>
+    <tr>
+        <td>copyright_info</td>
+        <td>【可选】文章版权模块的版权声明文字</td>
+    </tr>
+    <tr>
+        <td>mathjax</td>
+        <td>【可选】显示mathjax(当设置 mathjax 的 per_page: false 时，才需要配置，默认 false )</td>
+    </tr>
+    <tr>
+        <td>katex</td>
+        <td>【可选】显示 katex (当设置 katex 的 per_page: false 时，才需要配置，默认 false )</td>
+    </tr>
+    <tr>
+        <td>aplayer</td>
+        <td>【可选】在需要的页面加载 aplayer 的 js 和 css,请参考文章下面的音乐 配置</td>
+    </tr>
+    <tr>
+        <td>highlight_shrink</td>
+        <td>【可选】配置代码框是否展开(true/false)(默认为设置中 highlight_shrink 的配置)</td>
+    </tr>
+    <tr>
+        <td>aside</td>
+        <td>【可选】显示侧边栏 (默认 true)</td>
+    </tr>
+    <tr>
+        <td>abcjs</td>
+        <td>【可选】加载 abcjs (当设置 abcjs 的 per_page: false 时，才需要配置，默认 false )</td>
+    </tr>
+    <tr>
+        <td>password</td>
+        <td>【可选】文章密码</td>
+    </tr>
+</table>
+
+<!--endtab-->
+
+{%endtabs%}
 
 
 
@@ -395,6 +482,8 @@ danger
 
 {% tabs 分栏名字 %}
 
+{%note info disabled %}分栏{%endnote%}
+
 <!-- tab 预览 -->
 
 {% tabs 分栏预览, 2 %}
@@ -403,19 +492,22 @@ danger
 
 空
 
-<!-- endtab -->
+<!-- endtab --> <!-- tab -->
 
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+</table>
 
+{%note info disabled %}分栏里插入表格需要使用HTML格式{%endnote%}
 
-<!-- tab -->
-
-设置默认预览分栏
-
-<!-- endtab -->
-
-
-
-<!-- tab 自定义名字 @fab fa-apple -->
+<!-- endtab --> <!-- tab 自定义名字 @fab fa-apple -->
 
 自定义名字  + 矢量图片
 
@@ -461,7 +553,18 @@ danger
 
 <!-- tab -->
 
-设置默认预览分栏
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+</table>
+
+{%note info disabled %}分栏里插入表格需要使用HTML格式{%endnote%}
 
 <!-- endtab -->
 
@@ -483,9 +586,7 @@ danger
 
 {% endtabs %}
 
-<!-- endtab -->
-
-<!-- tab 折叠框 -->
+<!-- endtab --> <!-- tab 折叠框 -->
 
 {% tabs 折叠框 %}
 
@@ -515,9 +616,7 @@ hello world
 {% endfolding %}
 {% endfolding %}
 
-<!-- endtab -->
-
-<!-- tab 实现 -->
+<!-- endtab --> <!-- tab 实现 -->
 
 ````yaml
 {% folding ID open,默认打开的折叠框 %}
@@ -573,7 +672,7 @@ hello world
 
    [NodeJS 官网](https://nodejs.cn/download/) 下载对应版本，这里使用的是 Windows-64 安装包
 
-   ![NodeJS版本选择](https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/静态博客Hexo安装使用教程/NodeJS版本选择.png?raw=true)
+   ![NodeJS版本选择](https://github.com/choomoray/choomoray.github.io/blob/image/2023/静态博客Hexo安装使用教程/NodeJS版本选择.png?raw=true)
 
    解压后新建两个文件夹：用来放缓存文件的 `node_cache` 和用来放系统全局文件的 `node_global`
 
@@ -581,7 +680,7 @@ hello world
 
    在**系统变量**中新建一个  `NODE_HOME`
 
-   ![配置环境变量](https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/静态博客Hexo安装使用教程/配置环境变量.png?raw=true)
+   ![配置环境变量](https://github.com/choomoray/choomoray.github.io/blob/image/2023/静态博客Hexo安装使用教程/配置环境变量.png?raw=true)
 
    然后再从**系统变量**的 `PATH` 中添加下面三段
 
@@ -612,11 +711,7 @@ hello world
 
    安装成功后输入 `cnpm -v` 测试是否成功，在 node_global 文件夹下也可以看到 cnpm 文件，NodeJS 的安装配置到此完成！
 
-<!-- endtab -->
-
-
-
-<!-- tab Git -->
+<!-- endtab --> <!-- tab Git -->
 
 {% note no-icon %}
 
@@ -632,11 +727,7 @@ Git的使用在以后用到的时候再进行更新，目前仅为上传不同�
 
 {% endnote %}
 
-<!-- endtab -->
-
-
-
-<!-- tab Hexo -->
+<!-- endtab --> <!-- tab Hexo -->
 
 1. **Hexo 安装**
 
@@ -661,13 +752,38 @@ Git的使用在以后用到的时候再进行更新，目前仅为上传不同�
 
 2. **Hexo 基本操作**
 
-   |     功能     |    代码    |   代码全称    |
-   | :----------: | :--------: | :-----------: |
-   | 启动本地预览 |   hexo s   |  hexo server  |
-   | 清理本地缓存 | hexo clean |  hexo clean   |
-   | 生成HTML文件 |   hexo g   | hexo generate |
-   |  推送到云端  |   hexo d   |  hexo deploy  |
-   | 创建新的文章 |   hexo n   |   hexo new    |
+   <table>
+       <tr>
+           <td>功能</td>
+           <td>代码</td>
+           <td>代码全称</td>
+       </tr>
+       <tr>
+           <td>启动本地预览</td>
+           <td>hexo s</td>
+           <td>hexo server</td>
+       </tr>
+       <tr>
+           <td>清理本地缓存</td>
+           <td>hexo clean</td>
+           <td>hexo clean</td>
+       </tr>
+       <tr>
+           <td>生成 HTML 文件</td>
+           <td>hexo g</td>
+           <td>hexo generate</td>
+       </tr>
+       <tr>
+           <td>推送到云端</td>
+           <td>hexo d</td>
+           <td>hexo deploy</td>
+       </tr>
+       <tr>
+           <td>创建新的文章</td>
+           <td>hexo n</td>
+           <td>hexo new</td>
+       </tr>
+   </table>
 
 3. **Blog 部署到 Github**
 
@@ -685,13 +801,6 @@ Git的使用在以后用到的时候再进行更新，目前仅为上传不同�
    branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
    ```
 
-   
-
-
-
-
-
-
 
 <!-- endtab -->
 
@@ -699,23 +808,17 @@ Git的使用在以后用到的时候再进行更新，目前仅为上传不同�
 
 
 
-
-
-
-
-
-
-
-
-# 主题 & 美化（待完成......）
-
-在 [Butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 下载好压缩包，解压到 Theme 文件夹，然后在 `_config.yml` 里把默认的 Theme 替换成需要修改的主题文件夹名就大功告成了！
+# 主题 & 美化（缝缝补补中......）
 
 
 
 {% note no-icon %}
 
+在 [Butterfly](https://github.com/jerryc127/hexo-theme-butterfly) 下载好压缩包，解压到 Theme 文件夹，然后在 `_config.yml` 里把默认的 Theme 替换成需要修改的主题文件夹名就大功告成了！
+
 主题美化可以参考作者写的[详细文档](https://butterfly.js.org/)
+
+{%note info disabled%}在手贱删了不知道是什么的文件后，决定从新弄弄文档吧，下次再忘记了就不好办了{%endnote%}
 
 {% endnote %}
 
@@ -768,7 +871,43 @@ deploy:
 
 <!-- endtab --> <!-- tab 主题配置文件 -->
 
-{%folding 1, 导航栏%}
+ {%folding 颜色%}
+
+```yaml
+# Beautify/Effect (美化/效果)
+# --------------------------------------
+
+# Theme color for customize
+# Notice: color value must in double quotes like "#000" or may cause error!
+
+theme_color:
+  enable: true
+  main: gray
+#   paginator: "#00c4b6"
+#   button_hover: "#FF7242"
+#   text_selection: "#00c4b6"
+#   link_color: "#99a9bf"
+#   meta_color: "#858585"
+#   hr_color: "#A4D8FA"
+#   code_foreground: "#F47466"
+#   code_background: "rgba(27, 31, 35, .05)"
+#   toc_color: "#00c4b6"
+#   blockquote_padding_color: "#49b1f5"
+#   blockquote_background_color: "#49b1f5"
+#   scrollbar_color: "#49b1f5"
+#   meta_theme_color_light: "ffffff"
+#   meta_theme_color_dark: "#0d0d0d"
+
+# Website Background (设置网站背景颜色)
+# can set it to color or image (可以设置图片 和 颜色)
+# The formal of image: url(http://xxxxxx.com/xxx.jpg)
+background:
+
+# Footer Background
+footer_bg: "#C9C9C9"	# 设置网站底部颜色
+```
+
+{%endfolding%} {%folding 导航栏%}
 
 ```yaml
 nav: # 折叠导航栏
@@ -790,7 +929,7 @@ menu: # 导航栏内容
   # About: /about/ || fas fa-heart
 ```
 
-{%endfolding%} {%folding 4, 侧边栏%}
+{%endfolding%} {%folding 侧边栏%}
 
 ```yaml
 aside:
@@ -815,7 +954,7 @@ aside:
 
 
 
-  {%endfolding%}{%folding 6, 目录%}
+  {%endfolding%}{%folding 目录%}
 
 ```yaml
 toc:
@@ -827,7 +966,7 @@ toc:
   scroll_percent: true
 ```
 
-  {%endfolding%}{%folding 9, 底栏%}
+  {%endfolding%}{%folding 底栏%}
 
 ```yaml
 footer:
@@ -838,40 +977,25 @@ footer:
   copyright: false # Copyright of theme and framework
 ```
 
- {%endfolding%} {%folding 2, 代码块样式 & 显示行数限制%}
+ {%endfolding%} {%folding 主页显示文章封面%}
 
 ```yaml
-highlight_theme: light 	# 代码块样式
-highlight_copy: true 	# 右上角 复制按钮
-highlight_lang: true 	# 显示代码语言
-highlight_shrink: false # 折叠代码块
-highlight_height_limit: 120 # unit: px # 代码块显示行数限制
-code_word_wrap: false	
+cover:
+  # display the cover or not (是否显示文章封面)
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  # the position of cover in home page (封面显示的位置)
+  # left/right/both
+  position: both
+  # When cover is not set, the default cover is displayed (没有设置封面cover时，显示默认的封面)
+  default_cover:
+    # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
 ```
 
-{%endfolding%}  {%folding 7, 文章修改%}
 
-```yaml
-post_edit:
-  enable: false
-  # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
-  # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
-  url:
-```
 
-{%endfolding%} {%folding 8, 过期提醒%}
-
-```yaml
-noticeOutdate:
-  enable: true
-  style: flat # style: simple/flat
-  limit_day: 500 # When will it be shown
-  position: top # position: top/bottom
-  message_prev: 文章过期提示：本文最近更新于
-  message_next: 天前，部分信息可能已经过时，请谨慎参考本文内容。
-```
-
-{%endfolding%}   {%folding 3, 允许复制%}
+{%endfolding%} {%folding 允许复制%}
 
 ```yaml
 # copy settings
@@ -883,20 +1007,7 @@ copy:
     limit_count: 50
 ```
 
-{%endfolding%}   {%folding 5, 打赏%}
-
-```yaml
-# Sponsor/reward
-reward:
-  enable: true
-  text: 
-  QR_code:
-    - img: https://github.com/choomoray/choomoray.github.io/blob/image_backup/%E8%83%8C%E6%99%AF%E5%9B%BE/%E5%BE%AE%E4%BF%A1%E8%B5%9E%E8%B5%8F%E7%A0%81.png?raw=true
-      link: https://choomoray.github.io/
-      text: 微信
-```
-
- {%endfolding%}  {%folding 10, 访问人数 & 运行时长%}
+{%endfolding%}  {%folding 访问人数 & 运行时长%}
 
 ```yaml
 busuanzi: # 访问人数
@@ -919,7 +1030,7 @@ newest_comments:	# 评论
   avatar: true
 ```
 
- {%endfolding%}   {%folding 11, 右下按钮（翻译 & 阅读模式 & 深色模式）%}
+ {%endfolding%}   {%folding 右下按钮（翻译 & 阅读模式 & 深色模式）%}
 
 ```yaml
 translate:	# 翻译
@@ -1069,50 +1180,57 @@ clickShowText:
   mobile: true
 ```
 
+{%endfolding%}{%folding 图片大图查看模式%}
+
+```yaml
+# Lightbox (图片大图查看模式)
+# --------------------------------------
+# You can only choose one, or neither (只能选择一个，或者两个都不选)
+
+# medium-zoom
+# https://github.com/francoischalifour/medium-zoom
+medium_zoom: false
+
+# fancybox
+# https://fancyapps.com/fancybox/
+fancybox: false
+```
+
+{%endfolding%}{%folding 网页预加载%}
+
+```yaml
+# https://instant.page/
+# prefetch 预加载
+instantpage: true
+```
+
+{%endfolding%}{%folding 图片懒加载%}
+
+```yaml
+# Lazyload (图片懒加载)
+# https://github.com/verlok/vanilla-lazyload
+lazyload:
+  enable: true
+  field: site # site/post
+  placeholder: /img/加载图片.gif # 加载出图片前的占位符
+  blur: true	# 模糊加载效果
+```
+
+
+
 {%endfolding%}
 
 <!-- endtab -->
 
 {% endtabs %}
 
-
-
 ## 文章美化
 
+{%tabs 文章美化%}
 
+<!--tab 功能添加-->
 
-### 顶栏图片
-
-| 配置             | 解释                                                         |
-| :--------------- | :----------------------------------------------------------- |
-| index_img        | 主页的 top_img                                               |
-| default_top_img  | 默认的 top_img，当页面的 top_img 没有配置时，会显示 default_top_img |
-| archive_img      | 归档页面的 top_img                                           |
-| tag_img          | tag 子页面 的 默认 top_img                                   |
-| tag_per_img      | tag 子页面的 top_img，可配置每个 tag 的 top_img              |
-| category_img     | category 子页面 的 默认 top_img                              |
-| category_per_img | category 子页面的 top_img，可配置每个 category 的 top_img    |
-
-
-
-
-
-
-
-## 功能补充
-
-### <span id="jump_功能补充页">标签页 & 分类页</span>
-
-模板默认是没有标签页和分类页的，需要我们自己添加，非常简单，在命令行中分别敲入下面两行代码，`source` 目录下就会自动生成对应文件夹，里面的 index.md 就是对应文件
-
-```yaml
-hexo new page tags
-hexo new page categories
-```
-
-
-
-### 搜索功能
+{%folding 搜索功能%}
 
 非常实用的搜索功能，但是 Hexo 原生并不支持，需要安装依赖：
 
@@ -1138,11 +1256,9 @@ local_search:
 +  enable: true
 ```
 
+{%endfolding%}{%folding 文章加密%}
 
-
-### <span id='jump_文章加密'>文章加密</span>
-
-> 静态博客文章加密典型的防君子不防小人，程序只是卡在了调用那里，后台该能看到的还是可以看到的！
+{%note no-icon%}静态博客文章加密典型的防君子不防小人，程序只是卡在了调用那里，后台该能看到的还是可以看到的！{%endnote%}
 
 文章加密同样需要依赖支持：
 
@@ -1171,31 +1287,11 @@ encrypt: # hexo-blog-encrypt
 password: 123456
 ```
 
-![访问内容需要密码](https://github.com/choomoray/choomoray.github.io/blob/image_backup/2023/静态博客Hexo安装使用教程/访问内容需要密码.png?raw=true)
+![访问内容需要密码](https://github.com/choomoray/choomoray.github.io/blob/image/2023/静态博客Hexo安装使用教程/访问内容需要密码.png?raw=true)
 
 
 
-### 插入本地图片
-
-> [官方文档](https://hexo.io/zh-cn/docs/asset-folders)简单易懂，要比网上一个答案到处抄来的靠谱（花了好几个小时也没成功）。总结一下：
-
-首先要打开`主配置文档`中的`允许使用本地静态资源`：
-
-```yaml
-post_asset_folder: true
-```
-
-然后在`source`文件夹下创建`images`文件，把图片放入images文件夹就可以了，引用格式如下：
-
-```yaml
-![图片描述](../images/....../1.png)
-```
-
-需要注意的是：图片路径必须使用`/`
-
-
-
-### 页面锚点
+{%endfolding%}{%folding 页面锚点%}
 
 开启页面锚点后，当你在进行滚动时，页面链接会根据标题ID进行替换
 (注意: 每替换一次，会留下一个历史记录。所以如果一篇文章有很多锚点的话，网页的历史记录会很多。)
@@ -1210,4 +1306,190 @@ anchor:
   # Click the headline to scroll and update the anchor
   click_to_scroll: false
 ```
+
+{%endfolding%}{%folding 插入本地图片%}
+
+{%note no-icon%}[官方文档](https://hexo.io/zh-cn/docs/asset-folders)简单易懂，要比网上一个答案到处抄来的靠谱（花了好几个小时也没成功）。总结一下：{%endnote%}
+
+首先要打开`主配置文档`中的`允许使用本地静态资源`：
+
+```yaml
+post_asset_folder: true
+```
+
+然后在`source`文件夹下创建`images`文件，把图片放入images文件夹就可以了，引用格式如下：
+
+```yaml
+![图片描述](../images/....../1.png)
+```
+
+{%note info disabled%}需要注意的是：图片路径必须使用`/`{%endnote%}
+
+{%endfolding%}{%folding 标签页 & 分类页%}
+
+
+{%note no-icon%}模板默认是没有标签页和分类页的，需要我们自己添加，非常简单，在命令行中分别敲入下面两行代码，`source` 目录下就会自动生成对应文件夹，里面的 index.md 就是对应文件{%endnote%}
+
+```yaml
+hexo new page tags
+hexo new page categories
+```
+
+{%note no-icon%}分类页和主页的背景图片{%endnote%}
+
+<table>
+    <tr>
+        <td>配置</td>
+        <td>解释</td>
+    </tr>
+    <tr>
+        <td>index_img</td>
+        <td>主页的 top_img</td>
+    </tr>
+    <tr>
+        <td>default_top_img</td>
+        <td>默认的 top_img，当页面的 top_img 没有配置时，会显示 default_top_img</td>
+    </tr>
+    <tr>
+        <td>archive_img</td>
+        <td>归档页面的 top_img</td>
+    </tr>
+    <tr>
+        <td>tag_img</td>
+        <td>tag 子页面 的 默认 top_img</td>
+    </tr>
+    <tr>
+        <td>tag_per_img</td>
+        <td>tag 子页面的 top_img，可配置每个 tag 的 top_img</td>
+    </tr>
+    <tr>
+        <td>category_img</td>
+        <td>category 子页面 的 默认 top_img</td>
+    </tr>
+    <tr>
+        <td>category_per_img</td>
+        <td>category 子页面的 top_img，可配置每个 category 的 top_img</td>
+    </tr>
+</table>
+
+{%endfolding%}{%folding 字数统计%}
+
+要实现字数统计功能，需要安装依赖后重新编译：
+
+```yaml
+npm install hexo-wordcount --save
+或 yarn add hexo-wordcount
+```
+
+```yaml
+# wordcount (字数统计)
+# see https://butterfly.js.org/posts/ceeb73f/
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: true
+```
+
+{%endfolding%}
+
+<!--endtab--> <!--tab 内容美化-->
+
+{%folding 美化页面显示%}
+
+{%note info disabled%}文章中的标题H1H2...和分隔线等美化{%endnote%}
+
+```yaml
+beautify:
+  enable: true
+  field: site # site/post
+  title-prefix-icon: # '\f0c1'
+  title-prefix-icon-color: # '#F47466'
+```
+
+{%endfolding%}{%folding 代码块样式 & 显示行数限制%}
+
+```
+highlight_theme: light  # 代码块样式
+highlight_copy: true    # 右上角 复制按钮
+highlight_lang: true    # 显示代码语言
+highlight_shrink: false # 折叠代码块
+highlight_height_limit: 120 # unit: px # 代码块显示行数限制
+code_word_wrap: false   
+```
+
+{%endfolding%} {%folding 文章修改%}
+
+```yaml
+post_edit:
+  enable: false
+  # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
+  # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
+  url:
+```
+
+{%endfolding%} {%folding 过期提醒%}
+
+```yaml
+noticeOutdate:
+  enable: true
+  style: flat # style: simple/flat
+  limit_day: 500 # When will it be shown
+  position: top # position: top/bottom
+  message_prev: 文章过期提示：本文最近更新于
+  message_next: 天前，部分信息可能已经过时，请谨慎参考本文内容。
+```
+
+{%endfolding%} {%folding 版权声明%}
+
+```yaml
+post_copyright:
+  enable: true
+  decode: true	# 显示文字（默认全字母）
+  author_href:
+  license: KFC-VME-50
+  license_url: https://choomoray.github.io/
+```
+
+
+
+{%endfolding%} {%folding 分享%}
+
+```yaml
+# Share System (分享)
+# --------------------------------------
+
+# Share.js
+# https://github.com/overtrue/share.js
+sharejs:
+  enable: false
+  sites: facebook,twitter,wechat,weibo,qq
+
+# AddToAny
+# https://www.addtoany.com/
+addtoany:
+  enable: false
+  item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
+```
+
+
+
+{%endfolding%} {%folding 打赏%}
+
+```yaml
+# Sponsor/reward
+reward:
+  enable: true
+  text: 
+  QR_code:
+    - img: https://github.com/choomoray/choomoray.github.io/blob/image/%E8%83%8C%E6%99%AF%E5%9B%BE/%E5%BE%AE%E4%BF%A1%E8%B5%9E%E8%B5%8F%E7%A0%81.png?raw=true
+      link: https://choomoray.github.io/
+      text: 微信
+```
+
+{%endfolding%} 
+
+<!--endtab-->
+
+{%endtabs%}
 
