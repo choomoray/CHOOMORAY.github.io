@@ -6,7 +6,7 @@
   <link href="https://choomoray.github.io/atom.xml" rel="self"/>
   
   <link href="https://choomoray.github.io/"/>
-  <updated>2024-09-17T05:51:35.313Z</updated>
+  <updated>2024-09-17T06:10:30.787Z</updated>
   <id>https://choomoray.github.io/</id>
   
   <author>
@@ -21,8 +21,17 @@
     <link href="https://choomoray.github.io/2024/05/25/STM32/"/>
     <id>https://choomoray.github.io/2024/05/25/STM32/</id>
     <published>2024-05-24T16:00:00.000Z</published>
-    <updated>2024-09-17T05:51:35.313Z</updated>
+    <updated>2024-09-17T06:10:30.787Z</updated>
     
+    <content type="html"><![CDATA[<p>1</p><p>123123123123123</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;1&lt;/p&gt;
+&lt;p&gt;123123123123123&lt;/p&gt;
+</summary>
+      
     
     
     
@@ -44,8 +53,8 @@
   
   <entry>
     <title>51单片机STC82C52RC入门学习</title>
-    <link href="https://choomoray.github.io/2024/05/04/51_%E5%8D%95%E7%89%87%E6%9C%BA_STC82C52RC_%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://choomoray.github.io/2024/05/04/51_%E5%8D%95%E7%89%87%E6%9C%BA_STC82C52RC_%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</id>
+    <link href="https://choomoray.github.io/2024/05/04/51%E5%8D%95%E7%89%87%E6%9C%BASTC82C52RC%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://choomoray.github.io/2024/05/04/51%E5%8D%95%E7%89%87%E6%9C%BASTC82C52RC%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</id>
     <published>2024-05-03T16:00:00.000Z</published>
     <updated>2024-09-17T05:35:11.223Z</updated>
     
