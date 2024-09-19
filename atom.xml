@@ -6,7 +6,7 @@
   <link href="https://choomoray.github.io/atom.xml" rel="self"/>
   
   <link href="https://choomoray.github.io/"/>
-  <updated>2024-09-18T04:47:22.442Z</updated>
+  <updated>2024-09-19T07:04:56.156Z</updated>
   <id>https://choomoray.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>STM32基础学习</title>
+    <link href="https://choomoray.github.io/2024/09/19/STM32%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://choomoray.github.io/2024/09/19/STM32%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</id>
+    <published>2024-09-18T16:00:00.000Z</published>
+    <updated>2024-09-19T07:04:56.156Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Day1"><a href="#Day1" class="headerlink" title="Day1"></a>Day1</h1><h2 id="创建工程-…"><a href="#创建工程-…" class="headerlink" title="创建工程(…)"></a>创建工程(…)</h2><div class="tabs" id="创建工程"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="创建工程-1">模板下载</button><button type="button" class="tab " data-href="创建工程-2">详细步骤</button><button type="button" class="tab " data-href="创建工程-3">VsCode写代码</button></ul><div class="tab-contents"><div class="tab-item-content active" id="创建工程-1"><p>工程创建实在是太复杂了，这边建议直接复制以前写好的工程呢【<a href="https://github.com/choomoray/choomoray.github.io/blob/RII/%E6%96%87%E4%BB%B6/STM32/STM32%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF.zip">工程模板下载</a>】</p></div><div class="tab-item-content" id="创建工程-2"><p>详细步骤见视频【<a href="https://www.bilibili.com/video/BV1th411z7sn?t=228.8&amp;p=4">江科大STM32</a>】</p></div><div class="tab-item-content" id="创建工程-3"><p>使用官方扩展程序【Keil Assistant】可以在工程项目创建好的情况下写代码，但是文件添加等操作还是要在keil上完成</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h2 id="点亮LED"><a href="#点亮LED" class="headerlink" title="点亮LED"></a>点亮LED</h2><div class="tabs" id="点亮led"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="点亮led-1">VsCode写代码</button><button type="button" class="tab " data-href="点亮led-2">代码实现</button><button type="button" class="tab " data-href="点亮led-3">要点</button></ul><div class="tab-contents"><div class="tab-item-content active" id="点亮led-1"><p>STM32学习摒弃了C51单片机的寄存器编程，使用更便捷的标准库函数编程</p></div><div class="tab-item-content" id="点亮led-2"><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);</span><br><span class="line"></span><br><span class="line">GPIO_InitTypeDef GPIOA_InitStructure;</span><br><span class="line">GPIOA_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;</span><br><span class="line">GPIOA_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_2;</span><br><span class="line">GPIOA_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">GPIO_Init(GPIOA, &amp;GPIOA_InitStructure);</span><br><span class="line"></span><br><span class="line">GPIO_ResetBits(GPIOA, GPIO_Pin_0);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="点亮led-3"></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Day1&quot;&gt;&lt;a href=&quot;#Day1&quot; class=&quot;headerlink&quot; title=&quot;Day1&quot;&gt;&lt;/a&gt;Day1&lt;/h1&gt;&lt;h2 id=&quot;创建工程-…&quot;&gt;&lt;a href=&quot;#创建工程-…&quot; class=&quot;headerlink&quot; title=&quot;创建工程(</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>STM32</title>
