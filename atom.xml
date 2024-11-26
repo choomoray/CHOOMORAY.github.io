@@ -6,7 +6,7 @@
   <link href="https://choomoray.github.io/atom.xml" rel="self"/>
   
   <link href="https://choomoray.github.io/"/>
-  <updated>2024-11-26T08:31:37.274Z</updated>
+  <updated>2024-11-26T08:40:19.386Z</updated>
   <id>https://choomoray.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://choomoray.github.io/2024/11/27/STM32/"/>
     <id>https://choomoray.github.io/2024/11/27/STM32/</id>
     <published>2024-11-26T16:00:00.000Z</published>
-    <updated>2024-11-26T08:31:37.274Z</updated>
+    <updated>2024-11-26T08:40:19.386Z</updated>
     
-    <content type="html"><![CDATA[<div class="tabs" id="测试"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="测试-1">1</button><button type="button" class="tab " data-href="测试-2">2</button></ul><div class="tab-contents"><div class="tab-item-content active" id="测试-1"></div><div class="tab-item-content" id="测试-2"></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>]]></content>
+    <content type="html"><![CDATA[<h1 id="GPIO·通用输入-输出"><a href="#GPIO·通用输入-输出" class="headerlink" title="GPIO·通用输入/输出"></a>GPIO·通用输入/输出</h1><p>GPIO 驱动可以用作多个用途，包括管脚设置，单位设置/重置，锁定机制，从端口管脚读入或者向端口管脚写入数据</p><div class="tabs" id="测试"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="测试-1">1</button><button type="button" class="tab " data-href="测试-2">2</button></ul><div class="tab-contents"><div class="tab-item-content active" id="测试-1"></div><div class="tab-item-content" id="测试-2"></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>]]></content>
     
     
       
       
-    <summary type="html">&lt;div class=&quot;tabs&quot; id=&quot;测试&quot;&gt;&lt;ul class=&quot;nav-tabs&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;tab  active&quot; data-href=&quot;测试-1&quot;&gt;1&lt;/button&gt;&lt;button type=&quot;button&quot; cl</summary>
+    <summary type="html">&lt;h1 id=&quot;GPIO·通用输入-输出&quot;&gt;&lt;a href=&quot;#GPIO·通用输入-输出&quot; class=&quot;headerlink&quot; title=&quot;GPIO·通用输入/输出&quot;&gt;&lt;/a&gt;GPIO·通用输入/输出&lt;/h1&gt;&lt;p&gt;GPIO 驱动可以用作多个用途，包括管脚设置，单位设置/重置</summary>
       
     
     
