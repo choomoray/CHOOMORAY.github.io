@@ -11,6 +11,24 @@
   </url>
   
   <url>
+    <loc>https://choomoray.github.io/link/index.html</loc>
+    
+    <lastmod>2024-12-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/diary/index.html</loc>
+    
+    <lastmod>2024-12-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://choomoray.github.io/2024/11/29/%E4%BA%94%E7%AC%94%E6%89%93%E5%AD%97%E7%BB%83%E4%B9%A0/</loc>
     
     <lastmod>2024-12-02</lastmod>
@@ -66,24 +84,6 @@
   
   <url>
     <loc>https://choomoray.github.io/tags/index.html</loc>
-    
-    <lastmod>2024-09-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/link/index.html</loc>
-    
-    <lastmod>2024-09-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/diary/index.html</loc>
     
     <lastmod>2024-09-18</lastmod>
     
