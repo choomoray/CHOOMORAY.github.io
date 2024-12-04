@@ -4,6 +4,8 @@ date: 2024-12-12
 tag:
 - STM32
 - 手册
+categories:
+- STM32
 cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/%E5%B0%81%E9%9D%A2.png?raw=true
 ---
 
