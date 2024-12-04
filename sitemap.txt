@@ -1,7 +1,6 @@
 https://choomoray.github.io/2024/11/26/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2_Hexo_%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/
-https://choomoray.github.io/2024/11/27/STM32/
-https://choomoray.github.io/ggtt/index.html
-https://choomoray.github.io/STM32/index.html
+https://choomoray.github.io/2024/11/29/%E4%BA%94%E7%AC%94%E7%BB%83%E4%B9%A0/
+https://choomoray.github.io/2024/12/12/STM32%E6%A0%87%E5%87%86%E5%BA%93/
 https://choomoray.github.io/link/index.html
 https://choomoray.github.io/diary/index.html
 https://choomoray.github.io/2024/12/03/STM32%E5%AD%A6%E4%B9%A0/
@@ -20,4 +19,5 @@ https://choomoray.github.io/tags/Blog/
 https://choomoray.github.io/tags/Hexo/
 https://choomoray.github.io/tags/NodeJS/
 https://choomoray.github.io/tags/Git/
+https://choomoray.github.io/tags/STM32/
 https://choomoray.github.io/categories/%E5%85%B6%E5%AE%83/

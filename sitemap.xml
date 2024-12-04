@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://choomoray.github.io/2024/11/27/STM32/</loc>
+    <loc>https://choomoray.github.io/2024/11/29/%E4%BA%94%E7%AC%94%E7%BB%83%E4%B9%A0/</loc>
     
     <lastmod>2024-12-04</lastmod>
     
@@ -20,18 +20,9 @@
   </url>
   
   <url>
-    <loc>https://choomoray.github.io/ggtt/index.html</loc>
+    <loc>https://choomoray.github.io/2024/12/12/STM32%E6%A0%87%E5%87%86%E5%BA%93/</loc>
     
     <lastmod>2024-12-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://choomoray.github.io/STM32/index.html</loc>
-    
-    <lastmod>2024-12-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -182,6 +173,13 @@
   
   <url>
     <loc>https://choomoray.github.io/tags/Git/</loc>
+    <lastmod>2024-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://choomoray.github.io/tags/STM32/</loc>
     <lastmod>2024-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
