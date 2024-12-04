@@ -8,7 +8,7 @@ tags:
   - Hexo
   - Blog
   - NodeJS
-cover: https://github.com/choomoray/choomoray.github.io/blob/article/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/%E5%B0%81%E9%9D%A2.jpg?raw=true
+cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/%E5%B0%81%E9%9D%A2.jpg?raw=true
 
 ---
 
