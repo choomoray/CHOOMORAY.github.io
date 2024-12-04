@@ -123,16 +123,6 @@ int main(void)
 
 
 
-## 回顾
-
-{% folding ID,GPIO八种模式是什么及应用场景 %}
-
-
-
-{% endfolding %}
-
-
-
 
 
 
