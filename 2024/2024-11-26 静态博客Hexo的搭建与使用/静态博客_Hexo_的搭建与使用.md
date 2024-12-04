@@ -1,7 +1,7 @@
 ---
 title: 静态博客 Hexo 的搭建与使用
 date: 2024-11-26
-updated: 2024-22-26
+updated: 2024-11-26
 tags: 
   - 环境搭建
   - 手册
