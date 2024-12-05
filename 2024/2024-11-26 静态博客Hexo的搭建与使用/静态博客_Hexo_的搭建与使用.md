@@ -12,8 +12,7 @@ tags:
   - 美化
   - Markdown
   - Html
-cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/%E5%B0%81%E9%9D%A2.jpg?raw=true
-
+cover: https://raw.githubusercontent.com/choomoray/choomoray.github.io/refs/heads/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/%E5%B0%81%E9%9D%A2.webp
 ---
 
 
@@ -717,7 +716,7 @@ danger
 
    在**系统变量**中新建一个  `NODE_HOME`
 
-   ![配置环境变量](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/nodejs%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE.png?raw=true)
+   ![配置环境变量](https://raw.githubusercontent.com/choomoray/choomoray.github.io/refs/heads/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/nodejs%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE.webp)
 
    然后再从**系统变量**的 `PATH` 中添加下面三段
 
