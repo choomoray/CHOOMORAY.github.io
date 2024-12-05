@@ -1,6 +1,6 @@
 ---
 title: STM32 学习 WEEK 1
-date: 2024-12-03
+date: 2024-12-06
 tag:
 - STM32
 categories: 
@@ -9,21 +9,15 @@ categories:
 cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E5%AD%A6%E4%B9%A0/%E5%B0%81%E9%9D%A2.jpg?raw=true
 ---
 
-# Day2
 
 
 
 
 
 
+# Day 1 2024-12-06
 
-
-
-
-
-# Day1 
-
-## 创建工程(...)
+## 创建STM32工程(...)
 
 {% tabs 创建工程 %}
 
@@ -122,6 +116,12 @@ int main(void)
 <!--endtab-->
 
 {%endtabs%}
+
+
+
+
+
+
 
 
 

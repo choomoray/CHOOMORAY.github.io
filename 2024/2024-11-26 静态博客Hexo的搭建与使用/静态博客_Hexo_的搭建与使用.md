@@ -4,10 +4,14 @@ date: 2024-11-26
 updated: 2024-11-26
 tags: 
   - 环境搭建
-  - 手册
+  - 教程
   - Hexo
-  - Blog
+  - 博客
   - NodeJS
+  - 主题
+  - 美化
+  - Markdown
+  - Html
 cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/%E5%B0%81%E9%9D%A2.jpg?raw=true
 
 ---
@@ -24,13 +28,11 @@ cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-11
 
 ----
 
-# 博客
-
-## 写博客
+# 写博客
 
 主要使用`Markdown`格式写博客，出于美化缘故，一些语法会有一丝丝不同。
 
-### 前言 Front-matter
+## 前言 Front-matter
 
 在文章最上方使用`---`可填写文章页面配置信息Front-matter
 
@@ -175,13 +177,13 @@ cover: https://xxx.png # 封面图片
 
 {%endtabs%}
 
-### Markdown 语法
+## Markdown 语法
 
-## 美化博客
+# 美化博客
 
-### 外挂标签
+## 外挂标签
 
-#### Note 标签
+### Note 标签
 
 {%tabs Note%}
 
@@ -469,7 +471,7 @@ danger
 
 {%endtabs%}
 
-#### Tabs 分栏
+### Tabs 分栏
 
 {% tabs 分栏名字 %}
 
@@ -576,7 +578,7 @@ danger
 
 {% endtabs %}
 
-#### Flink 友链
+### Flink 友链
 
 {%tabs 友链%}
 
@@ -654,17 +656,17 @@ danger
 
 {%endtabs%}
 
-### HTML 语法
+## HTML 语法
 
-#### 字体
+### 字体
 
-##### 大小
+#### 大小
 
-##### 颜色
+#### 颜色
 
-##### 位置
+#### 位置
 
-#### 折叠框
+### 折叠框
 
 {%note warning no-icon%}
 
@@ -675,7 +677,7 @@ danger
 
 {%endnote%}
 
-````
+````html
 <details> <summary>名字</summary><pre><code>
 ```
 代码内容
@@ -715,7 +717,7 @@ danger
 
    在**系统变量**中新建一个  `NODE_HOME`
 
-   ![配置环境变量](https://img2.imgtp.com/2024/05/27/E312n3KL.png)
+   ![配置环境变量](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-11-26%20%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2Hexo%E7%9A%84%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8/nodejs%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE.png?raw=true)
 
    然后再从**系统变量**的 `PATH` 中添加下面三段
 
@@ -729,7 +731,7 @@ danger
 
 3. **配置 npm & cnpm**
 
-   ```
+   ```shell
    // 配置 npm 全局
    npm config set prefix "node_global 的路径"
    // 配置 npm 缓存
@@ -740,7 +742,7 @@ danger
 
    没有报错就说明已经成功配置了，然后就可以下载镜像文件了
 
-   ```
+   ```shell
    npm install -g cnpm
    ```
 
@@ -778,13 +780,13 @@ Hexo 官网有提供的详尽的 [安装使用文档](https://hexo.io/zh-cn/docs
 
 Hexo 使用的是命令行进行操作，首先**安装 Hexo**，hexo -v 测试安装
 
-```yaml
+```shell
 cnpm install -g hexo-cli
 ```
 
 在博客文件夹根目录下**初始化 Hexo**
 
-```yaml
+```shell
 hexo init
 npm install	// 初始化成功了就不需要再执行这步了
 ```
@@ -828,13 +830,13 @@ npm install	// 初始化成功了就不需要再执行这步了
 
 1. 首先再本目录下安装部署插件
 
-   ```
+   ```shell
    cnpm install --save hexo-deployer-git
    ```
 
    插件装完后去 `_config.yml` 里进行必要配置！在文件最下面修改 `# Deployment` 里面的信息
 
-   ```
+   ```yaml
    type: git
    repo: https://github.com/choomoray/choomoray.github.io.git
    branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
@@ -846,7 +848,7 @@ npm install	// 初始化成功了就不需要再执行这步了
 
 
 
-# 主题 & 美化（缝缝补补中......）
+# 主题美化（缝缝补补中......）
 
 
 
@@ -860,7 +862,7 @@ npm install	// 初始化成功了就不需要再执行这步了
 
 ## 主题代码一览
 
-```yml
+```yaml
 # --------------------------------------
 # 导航设置
 # --------------------------------------
@@ -2082,30 +2084,26 @@ CDN:
 
 
 
-## 网站美化
+## 主配置文件
 
-{%tabs 网站基本信息,2%}
+### 安装pug & stylus渲染器
 
-<!-- tab 主配置文件 -->
-
-<details> <summary>安装pug & stylus渲染器</summary><pre><code>
 为保证主题正常运行，需要安装渲染器
-```
+```shell
 npm install hexo-renderer-pug hexo-renderer-stylus --save
 ```
-</code></pre> </details>
 
-<details> <summary>添加.yml文件</summary><pre><code>
-```
-将主题文件夹里的_config.yml复制一份到根目录下
-改名为_config.(your theme name).yml
-Hexo会先根据这里的配置文件配置主题
-之后修改主题配置直接在这里修改就可以了，升级主题也可以直接覆盖原主题。_config.hexo-theme-butterfly-dev.yml
-```
-</code></pre> </details>
+### 添加.yml文件
 
-<details> <summary>网站基本信息</summary><pre><code>
+将主题文件夹里的`_config.yml`复制一份到根目录下改名为`config.(your theme name).yml`，Hexo会先根据这里的配置文件配置主题，之后修改主题配置直接在这里修改就可以了，升级主题也可以直接覆盖原主题。
+
 ```
+config.hexo-theme-butterfly-dev.yml
+```
+
+### 网站基本信息
+
+```yaml
 # Site
 title: CHOOMORAY	# 网站标题
 subtitle: ''		# 网站副标题
@@ -2119,19 +2117,19 @@ timezone: ''
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://choomoray.github.io/	# 网站链接
 ```
-</code></pre> </details>
 
-<details> <summary>设置默认主题</summary><pre><code>
-```
+设置默认主题
+
+```yaml
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-butterfly-dev
 ```
-</code></pre> </details>
 
-<details> <summary>Git推送</summary><pre><code>
-```
+### Git推送
+
+```yaml
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
@@ -2139,12 +2137,14 @@ deploy:
   repo: https://github.com/choomoray/choomoray.github.io.git	# 推送目标
   branch: blog	# 推送分支
 ```
-</code></pre> </details>
 
-<!-- endtab --> <!-- tab 主题配置文件 -->
+----
 
-<details> <summary>颜色</summary><pre><code>
-```
+## 主题配置文件
+
+### 主题颜色
+
+```yaml
 # Beautify/Effect (美化/效果)
 # --------------------------------------
 # Theme color for customize
@@ -2152,6 +2152,7 @@ deploy:
 theme_color:
   enable: true
   main: gray
+  
 #   paginator: "#00c4b6"
 #   button_hover: "#FF7242"
 #   text_selection: "#00c4b6"
@@ -2170,34 +2171,43 @@ theme_color:
 # can set it to color or image (可以设置图片 和 颜色)
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
 background:
+
 # Footer Background
 footer_bg: "#C9C9C9"	# 设置网站底部颜色
 ```
-</code></pre> </details>
 
-<details> <summary>导航栏</summary><pre><code>
-```
-nav: # 折叠导航栏
-  logo: 		# image
-  display_title: true	# 左上角 HOME
-  fixed: false 		# 折叠导航栏
-menu: # 导航栏内容
-  首页: / || fas fa-home
-  时间轴: /archives/ || fas fa-archive
-  标签: /tags/ || fas fa-tags
-  分类: /categories/ || fas fa-folder-open
-  收藏: /link/ || fas fa-link
-  ME: /diary/ || fas fa-video
-  # List||fas fa-list:
-  #   Music: /music/ || fas fa-music
-  #   Movie: /movies/ || fas fa-video
-  # Link: /link/ || fas fa-link
-  # About: /about/ || fas fa-heart
-```
-</code></pre> </details>
+### 导航栏
 
-<details> <summary>侧边栏</summary><pre><code>
+```yaml
+nav:
+  logo: # image
+  display_title: true
+  fixed: false # fixed navigation bar
+
+# Menu 目錄
+menu:   
+  代码||fas fa-window-restore:
+    STM32标准库: /2024/12/12/2024/2024-12-12%20STM32标准库/STM32标准库/ || fas fa-microchip
+
+  网站||fas fa-home:
+    博客: /2024/11/26/2024/2024-11-26%20静态博客Hexo的搭建与使用/静态博客_Hexo_的搭建与使用/ || fas fa-edit
+    标签: /tags/ || fas fa-tags
+    分类: /categories/ || fas fa-folder-open
+    时间轴: /archives/ || fas fa-ellipsis-v
+  
+
+  我||fas fa-user-circle:
+    日志: /diary/ || fas fa-calendar
+    收藏: /backup/link/ || fas fa-link
+    五笔: /2024/11/29/2024/2024-11-30%20五笔练习/五笔练习/ || fas fa-pencil-square
 ```
+
+### 侧边栏
+
+```yaml
+# aside
+# --------------------------------------
+
 aside:
   enable: true
   hide: false
@@ -2215,24 +2225,67 @@ aside:
       enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/choomoray
+      link: https://choomoray.github.io/
+  card_announcement:
+    enable: false
+    content: # This is my Blog
+  card_recent_post:
+    enable: true
+    limit: 5 # if set 0 will show all
+    sort: date # date or updated
+    sort_order: # Don't modify the setting unless you know how it works
+  card_categories:
+    enable: true
+    limit: 8 # if set 0 will show all
+    expand: none # none/true/false
+    sort_order: # Don't modify the setting unless you know how it works
+  card_tags:
+    enable: true
+    limit: 40 # if set 0 will show all
+    color: true
+    orderby: random # Order of tags, random/name/length
+    order: 1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    sort_order: # Don't modify the setting unless you know how it works
+  card_archives:
+    enable: true
+    type: monthly # yearly or monthly
+    format: MMMM YYYY # eg: YYYY年MM月
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
+    limit: 8 # if set 0 will show all
+    sort_order: # Don't modify the setting unless you know how it works
+  card_webinfo:
+    enable: false
+    post_count: true
+    last_push_date: true
+    sort_order: # Don't modify the setting unless you know how it works
+  card_post_series:
+    enable: true
+    orderBy: 'date' # Order by title or date
+    order: -1 # Sort of order. 1, asc for ascending; -1, desc for descending
 ```
-</code></pre> </details>
 
-<details> <summary>目录</summary><pre><code>
-```
+### 目录
+
+```yaml
 toc:
-  post: true	# 文章页
+  post: true
   page: true
-  number: true	# 章节显示
-  expand: true	# 折叠目录
+  number: false
+  expand: false
   style_simple: true # for post
   scroll_percent: true
-```
-</code></pre> </details>
 
-<details> <summary>底栏</summary><pre><code>
+post_copyright:
+  enable: true
+  decode: true
+  author_href:
+  license: KFC-VME-50
+  license_url: https://choomoray.github.io/
 ```
+
+### 底栏
+
+```yaml
 footer:
   owner:
     enable: true
@@ -2240,10 +2293,10 @@ footer:
   custom_text: 
   copyright: false # Copyright of theme and framework
 ```
-</code></pre> </details>
 
-<details> <summary>主页显示文章封面</summary><pre><code>
-```
+### 主页显示文章封面
+
+```yaml
 cover:
   # display the cover or not (是否显示文章封面)
   index_enable: true
@@ -2252,14 +2305,14 @@ cover:
   # the position of cover in home page (封面显示的位置)
   # left/right/both
   position: both
-  # When cover is not set, the default cover is displayed (没有设置封面cover时，显示默认的封面)
+  # When cover is not set, the default cover is displayed (没有设置cover时，显示默认封面)
   default_cover:
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
 ```
-</code></pre> </details>
 
-<details> <summary>允许复制</summary><pre><code>
-```
+### 允许复制
+
+```yaml
 # copy settings
 # copyright: 复制的内容后面加上版权信息
 copy:
@@ -2268,19 +2321,21 @@ copy:
     enable: false
     limit_count: 50
 ```
-</code></pre> </details>
 
-<details> <summary>访问人数 & 运行时长</summary><pre><code>
-```
+### 访问人数 & 运行时长
+
+```yaml
 busuanzi: # 访问人数
   site_uv: false
   site_pv: false
   page_pv: false
+  
 # Time difference between publish date and now
 # Formal: Month/Day/Year Time or Year/Month/Day Time
 runtimeshow:	# 运行时长
   enable: false
   publish_date: 1/1/2024
+  
 # Aside widget - Newest Comments
 newest_comments:	# 评论
   enable: false
@@ -2289,11 +2344,11 @@ newest_comments:	# 评论
   storage: 10 # unit: mins, save data to localStorage
   avatar: true
 ```
-</code></pre> </details>
 
-<details> <summary>右下按钮（翻译 & 阅读模式 & 深色模式）</summary><pre><code>
-```
-translate:	# 翻译
+### 右下按钮（翻译 & 阅读模式 & 深色模式）
+
+```yaml
+translate:
   enable: false
   # The text of a button
   default: 繁
@@ -2305,26 +2360,11 @@ translate:	# 翻译
   msgToTraditionalChinese: '繁'
   # The text of the button when the language is Traditional Chinese
   msgToSimplifiedChinese: '簡'
-# Read Mode 阅读模式
-readmode: true
-# dark mode 深色模式
-darkmode:	
-  enable: true
-  # Toggle Button to switch dark/light mode
-  button: true
-  # Switch dark/light mode automatically (自動切換 dark mode和 light mode)
-  # autoChangeMode: 1  Following System Settings, if the system doesn't support dark mode, it will switch dark mode between 6 pm to 6 am
-  # autoChangeMode: 2  Switch dark mode between 6 pm to 6 am
-  # autoChangeMode: false
-  autoChangeMode: true
-  # Set the light mode time. The value is between 0 and 24. If not set, the default value is 6 and 18
-  start: # 8
-  end: # 22
 ```
-</code></pre> </details>
 
-<details> <summary>主页仿键盘敲入文字效果</summary><pre><code>
-```
+### 主页仿键盘敲入文字效果
+
+```yaml
 subtitle:
   enable: true
   # Typewriter Effect (打字效果)
@@ -2348,17 +2388,17 @@ subtitle:
     - 静以修身，俭以养德，非淡泊无以明志，非宁静无以致远。
     - 尺有所短；寸有所长。物有所不足；智有所不明。
 ```
-</code></pre> </details>
 
-<details> <summary>网页进入效果</summary><pre><code>
-```
+### 网页进入效果
+
+```yaml
 # Enter transitions
 enter_transitions: true
 ```
-</code></pre> </details>
 
-<details> <summary>打字效果</summary><pre><code>
-```
+### 打字效果
+
+```yaml
 # Typewriter Effect (打字效果)
 # https://github.com/disjukr/activate-power-mode
 activate_power_mode:
@@ -2367,12 +2407,13 @@ activate_power_mode:
   shake: true #  open shake (抖动特效)
   mobile: false
 ```
-</code></pre> </details>
 
-<details> <summary>背景样式</summary><pre><code>
-```
+### 背景样式
+
+```yaml
 # Background effects (背景特效)
 # --------------------------------------
+
 # canvas_ribbon (静止彩带背景)
 # See: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
@@ -2382,11 +2423,13 @@ canvas_ribbon:
   zIndex: -1
   click_to_change: true
   mobile: false
-# Fluttering Ribbon (动态彩带背景)
+
+# Fluttering Ribbon (动态彩带)
 canvas_fluttering_ribbon:
   enable: true
   mobile: false
-# canvas_nest	# 纯色背景
+
+# canvas_nest
 # https://github.com/hustcc/canvas-nest.js
 canvas_nest:
   enable: false
@@ -2396,19 +2439,21 @@ canvas_nest:
   count: 99 # the number of lines, default: 99.
   mobile: false
 ```
-</code></pre> </details>
 
-<details> <summary>鼠标点击效果</summary><pre><code>
-```
+### 鼠标点击效果
+
+```yaml
 # Mouse click effects: fireworks (鼠标点击效果: 烟花特效)
 fireworks:
   enable: false
   zIndex: 9999 # -1 or 9999
   mobile: false
+  
 # Mouse click effects: Heart symbol (鼠标点击效果：爱心)
 click_heart:
   enable: false
   mobile: false
+  
 # Mouse click effects: words (鼠标点击效果：文字)
 clickShowText:
   enable: true
@@ -2429,32 +2474,34 @@ clickShowText:
   random: true
   mobile: true
 ```
-</code></pre> </details>
 
-<details> <summary>图片大图查看模式</summary><pre><code>
-```
+### 图片大图查看模式
+
+````yaml
 # Lightbox (图片大图查看模式)
 # --------------------------------------
 # You can only choose one, or neither (只能选择一个，或者两个都不选)
+
 # medium-zoom
 # https://github.com/francoischalifour/medium-zoom
 medium_zoom: false
+
 # fancybox
 # https://fancyapps.com/fancybox/
 fancybox: false
-```
-</code></pre> </details>
+````
 
-<details> <summary>网页预加载</summary><pre><code>
-```
+### 网页预加载
+
+```yaml
 # https://instant.page/
 # prefetch 预加载
 instantpage: true
 ```
-</code></pre> </details>
 
-<details> <summary>图片懒加载</summary><pre><code>
-```
+### 图片懒加载
+
+```yaml
 # Lazyload (图片懒加载)
 # https://github.com/verlok/vanilla-lazyload
 lazyload:
@@ -2462,26 +2509,32 @@ lazyload:
   field: site # site/post
   placeholder: /img/加载图片.gif # 加载出图片前的占位符
   blur: true	# 模糊加载效果
-
 ```
-</code></pre> </details>
 
-<!-- endtab -->
 
-{%endtabs%}
 
-## 文章美化
 
-{%tabs 文章美化%}
 
-<!--tab 功能添加-->
 
-<details> <summary>搜索功能</summary><pre><code>
+
+
+
+
+
+# 文章美化
+
+## 功能添加
+
+### 搜索功能
+
 非常实用的搜索功能，但是 Hexo 原生并不支持，需要安装依赖：
-```yaml
+
+```shell
 npm install hexo-generator-search --save
 ```
+
 修改`主配置文件`，添加如下内容：
+
 ```yaml
 search:	# 搜索
   path: search.xml
@@ -2489,21 +2542,30 @@ search:	# 搜索
   content: true
   template: ./search.xml
 ```
+
 在主题中开启搜索，在`主题配置文件`添加以下内容：
+
 ```yaml
 local_search:
 -  enable: false
 +  enable: true
 ```
-</code></pre> </details>
 
-<details> <summary>文章加密</summary><pre><code>
-{%note no-icon%}静态博客文章加密典型的防君子不防小人，程序只是卡在了调用那里，后台该能看到的还是可以看到的！{%endnote%}
+### 文章加密
+
+{%note info no-icon%}
+
+静态博客文章加密典型的防君子不防小人，程序只是卡在了调用那里，后台该能看到的还是可以看到的！
+
+{%endnote%}
 文章加密同样需要依赖支持：
-```yaml
+
+```shell
 npm install --save hexo-blog-encrypt
 ```
+
 在`主配置文件`中添加下面代码：
+
 ```yaml
 # 安全
 encrypt: # hexo-blog-encrypt
@@ -2516,17 +2578,21 @@ encrypt: # hexo-blog-encrypt
   wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
   wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
 ```
+
 在文章中使用加密，在「头文件」中添加 `password` 关键词即可：
+
 ```yaml
 password: 123456
 ```
-![访问内容需要密码](https://github.com/choomoray/choomoray.github.io/blob/image/2023/静态博客Hexo安装使用教程/访问内容需要密码.png?raw=true)
-</code></pre> </details>
 
-<details> <summary>页面锚点</summary><pre><code>
+![访问内容需要密码](https://github.com/choomoray/choomoray.github.io/blob/image/2023/静态博客Hexo安装使用教程/访问内容需要密码.png?raw=true)
+
+### 页面锚点
+
 开启页面锚点后，当你在进行滚动时，页面链接会根据标题ID进行替换
 (注意: 每替换一次，会留下一个历史记录。所以如果一篇文章有很多锚点的话，网页的历史记录会很多。)
 修改 `主题配置文件`
+
 ```yaml
 # anchor
 anchor:
@@ -2535,70 +2601,69 @@ anchor:
   # Click the headline to scroll and update the anchor
   click_to_scroll: false
 ```
-</code></pre> </details>
 
-<details> <summary>插入本地图片</summary><pre><code>
-{%note no-icon%}[官方文档](https://hexo.io/zh-cn/docs/asset-folders)简单易懂，要比网上一个答案到处抄来的靠谱（花了好几个小时也没成功）。总结一下：{%endnote%}
+### 插入本地图片
+
+{%note no-icon%}
+
+[官方文档](https://hexo.io/zh-cn/docs/asset-folders) 简单易懂，要比网上一个答案到处抄来的靠谱（花了好几个小时也没成功）。总结一下：
+
+{%endnote%}
 首先要打开`主配置文档`中的`允许使用本地静态资源`：
+
 ```yaml
 post_asset_folder: true
 ```
+
 然后在`source`文件夹下创建`images`文件，把图片放入images文件夹就可以了，引用格式如下：
+
 ```yaml
 ![图片描述](../images/....../1.png)
 ```
-{%note info disabled%}需要注意的是：图片路径必须使用`/`{%endnote%}
-</code></pre> </details>
 
-<details> <summary>标签页 & 分类页</summary><pre><code>
-{%note no-icon%}模板默认是没有标签页和分类页的，需要我们自己添加，非常简单，在命令行中分别敲入下面两行代码，`source` 目录下就会自动生成对应文件夹，里面的 index.md 就是对应文件{%endnote%}
-```yaml
+{%note info disabled%}
+
+需要注意的是：图片路径必须使用`/`
+
+{%endnote%}
+
+### 标签页 & 分类页
+
+{%note no-icon%}
+
+模板默认是没有标签页和分类页的，需要我们自己添加，非常简单，在命令行中分别敲入下面两行代码，`source` 目录下就会自动生成对应文件夹，里面的 index.md 就是对应文件
+
+{%endnote%}
+
+```shell
 hexo new page tags
 hexo new page categories
 ```
-{%note no-icon%}分类页和主页的背景图片{%endnote%}
-<table>
-    <tr>
-        <td>配置</td>
-        <td>解释</td>
-    </tr>
-    <tr>
-        <td>index_img</td>
-        <td>主页的 top_img</td>
-    </tr>
-    <tr>
-        <td>default_top_img</td>
-        <td>默认的 top_img，当页面的 top_img 没有配置时，会显示 default_top_img</td>
-    </tr>
-    <tr>
-        <td>archive_img</td>
-        <td>归档页面的 top_img</td>
-    </tr>
-    <tr>
-        <td>tag_img</td>
-        <td>tag 子页面 的 默认 top_img</td>
-    </tr>
-    <tr>
-        <td>tag_per_img</td>
-        <td>tag 子页面的 top_img，可配置每个 tag 的 top_img</td>
-    </tr>
-    <tr>
-        <td>category_img</td>
-        <td>category 子页面 的 默认 top_img</td>
-    </tr>
-    <tr>
-        <td>category_per_img</td>
-        <td>category 子页面的 top_img，可配置每个 category 的 top_img</td>
-    </tr>
-</table>
-</code></pre> </details>
 
-<details> <summary>字数统计</summary><pre><code>
+{%note no-icon%}
+
+分类页和主页的背景图片
+
+{%endnote%}
+
+| 配置             | 解释                                                         |
+| ---------------- | ------------------------------------------------------------ |
+| index_img        | 主页的 top_img                                               |
+| default_top_img  | 默认的 top_img，当页面的 top_img 没有配置时，会显示 default_top_img |
+| archive_img      | 归档页面的 top_img                                           |
+| tag_img          | tag 子页面 的 默认 top_img                                   |
+| tag_per_img      | tag 子页面的 top_img，可配置每个 tag 的 top_img              |
+| category_img     | category 子页面 的 默认 top_img                              |
+| category_per_img | category 子页面的 top_img，可配置每个 category 的 top_img    |
+
+### 字数统计
+
 要实现字数统计功能，需要安装依赖后重新编译：
-```yaml
+
+```shell
 npm install hexo-wordcount --save
-或 yarn add hexo-wordcount
 ```
+
 ```yaml
 # wordcount (字数统计)
 # see https://butterfly.js.org/posts/ceeb73f/
@@ -2608,12 +2673,17 @@ wordcount:
   min2read: true
   total_wordcount: true
 ```
-</code></pre> </details>
 
-<!--endtab--> <!--tab 内容美化-->
+## 内容美化
 
-<details> <summary>美化页面显示</summary><pre><code>
-{%note info disabled%}文章中的标题H1H2...和分隔线等美化{%endnote%}
+### 美化页面显示
+
+{%note info disabled%}
+
+文章中的标题H1H2...和分隔线等美化
+
+{%endnote%}
+
 ```yaml
 beautify:
   enable: true
@@ -2621,10 +2691,10 @@ beautify:
   title-prefix-icon: # '\f0c1'
   title-prefix-icon-color: # '#F47466'
 ```
-</code></pre> </details>
 
-<details> <summary>代码块样式 & 显示行数限制</summary><pre><code>
-```
+### 代码块样式 & 显示行数限制
+
+```yaml
 highlight_theme: light  # 代码块样式
 highlight_copy: true    # 右上角 复制按钮
 highlight_lang: true    # 显示代码语言
@@ -2632,20 +2702,20 @@ highlight_shrink: false # 折叠代码块
 highlight_height_limit: 120 # unit: px # 代码块显示行数限制
 code_word_wrap: false 
 ```
-</code></pre> </details>
 
-<details> <summary>文章修改</summary><pre><code>
-```
+### 文章修改
+
+```yaml
 post_edit:
   enable: false
   # url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name/
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
   url:
 ```
-</code></pre> </details>
 
-<details> <summary>过期提醒</summary><pre><code>
-```
+### 过期提醒
+
+```yaml
 noticeOutdate:
   enable: true
   style: flat # style: simple/flat
@@ -2654,10 +2724,10 @@ noticeOutdate:
   message_prev: 文章过期提示：本文最近更新于
   message_next: 天前，部分信息可能已经过时，请谨慎参考本文内容。
 ```
-</code></pre> </details>
 
-<details> <summary>版权声明</summary><pre><code>
-```
+### 版权声明
+
+```yaml
 post_copyright:
   enable: true
   decode: true	# 显示文字（默认全字母）
@@ -2665,10 +2735,10 @@ post_copyright:
   license: KFC-VME-50
   license_url: https://choomoray.github.io/
 ```
-</code></pre> </details>
 
-<details> <summary>分享</summary><pre><code>
-```
+### 分享
+
+```yaml
 # Share System (分享)
 # --------------------------------------
 # Share.js
@@ -2682,10 +2752,10 @@ addtoany:
   enable: false
   item: facebook,twitter,wechat,sina_weibo,facebook_messenger,email,copy_link
 ```
-</code></pre> </details>
 
-<details> <summary>打赏</summary><pre><code>
-```
+### 打赏
+
+```yaml
 # Sponsor/reward
 reward:
   enable: true
@@ -2695,29 +2765,6 @@ reward:
       link: https://choomoray.github.io/
       text: 微信
 ```
-</code></pre> </details>
-
-<!--endtab-->
-
-{%endtabs%}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
