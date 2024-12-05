@@ -5,7 +5,6 @@ tag:
 - STM32
 categories: 
 - 学习
-- STM32
 cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E5%AD%A6%E4%B9%A0%20WEEK%201/%E5%B0%81%E9%9D%A2.jpg?raw=true
 ---
 
@@ -17,13 +16,14 @@ cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12
 
 # Day 1 2024-12-06
 
-## 创建STM32工程(...)
+## 创建STM32工程
 
 {% tabs 创建工程 %}
 
+
 <!--tab 模板下载-->
 
-工程创建实在是太复杂了，这边建议直接复制以前写好的工程呢【[工程模板下载](https://github.com/choomoray/choomoray.github.io/blob/RII/%E6%96%87%E4%BB%B6/STM32/STM32%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF.zip)】
+工程创建实在是太复杂了，这边建议直接复制以前写好的工程呢【[工程模板下载](https://github.com/choomoray/choomoray.github.io/raw/refs/heads/file/STM32/STM32%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF.zip)】
 
 <!--endtab-->
 
@@ -40,12 +40,6 @@ cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12
 <!--endtab-->
 
 {% endtabs %}
-
-
-
-
-
-
 
 
 

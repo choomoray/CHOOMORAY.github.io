@@ -188,7 +188,7 @@ GPIO_Mode 用以设置选中管脚的工作状态。
 | GPIO_Mode_AF_OD       | 复用开漏输出 |
 | GPIO_Mode_AF_PP       | 复用推挽输出 |
 
-{% note warning flat %}
+{% note warning no-icon %}
 
 * 当某管脚设置为上拉或者下拉输入模式，使用寄存器 Px_BSRR 和 PxBRR
 
