@@ -20,10 +20,10 @@ cover: https://img2.imgtp.com/2024/05/27/5G1OtZIb.png
 
 {%note no-icon%}
 
-1. 导入图片，并且把锁定取消。![](https://img2.imgtp.com/2024/05/27/si7cTE8w.png)
-2. 选择`通道模式`，挨个点选找到黑色覆盖范围最合适的通道，**拷贝该通道**。![](https://img2.imgtp.com/2024/05/27/moocQVGn.png)
-3. `CTRL + L`进入色阶，把最左边的三角向右拉，推出色阶模式后`CTRL + 左键`目标选中。![](https://img2.imgtp.com/2024/05/27/UqrMrWx6.png)
-4. `CTRL + SHIFT + I`反选后`CTRL + J`得到去白底的图片。![](https://img2.imgtp.com/2024/05/27/5ZkdVsdk.png)
+1. 导入图片，并且把锁定取消。![图片去白底1](https://img2.imgtp.com/2024/05/27/si7cTE8w.png)
+2. 选择`通道模式`，挨个点选找到黑色覆盖范围最合适的通道，**拷贝该通道**。![图片去白底2](https://img2.imgtp.com/2024/05/27/moocQVGn.png)
+3. `CTRL + L`进入色阶，把最左边的三角向右拉，推出色阶模式后`CTRL + 左键`目标选中。![图片去白底3](https://img2.imgtp.com/2024/05/27/UqrMrWx6.png)
+4. `CTRL + SHIFT + I`反选后`CTRL + J`得到去白底的图片。![图片去白底4](https://img2.imgtp.com/2024/05/27/5ZkdVsdk.png)
 
 {% note info disabled %}
 
