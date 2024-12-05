@@ -6,7 +6,7 @@ tag:
 categories: 
 - 学习
 - STM32
-cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E5%AD%A6%E4%B9%A0/%E5%B0%81%E9%9D%A2.jpg?raw=true
+cover: https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E5%AD%A6%E4%B9%A0%20WEEK%201/%E5%B0%81%E9%9D%A2.jpg?raw=true
 ---
 
 
