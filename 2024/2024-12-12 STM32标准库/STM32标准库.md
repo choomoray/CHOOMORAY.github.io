@@ -21,11 +21,11 @@ GPIO驱动可以用作多个用途，包括管脚设置，单位设置/重置，
 
 {% note 'fab fa-github' modern%}
 
-**[stm32f10x_gpio.h](https://github.com/choomoray/choomoray.github.io/blob/file/STM32/Library/stm32f10x_gpio.h)**
+**[stm32f10x_gpio.h](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/Library/stm32f10x_gpio.h)**
 
 {% endnote %} {% note 'fab fa-github' modern%}
 
-**[stm32f10x_gpio.c](https://github.com/choomoray/choomoray.github.io/blob/file/STM32/Library/stm32f10x_gpio.c)**
+**[stm32f10x_gpio.c](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/Library/stm32f10x_gpio.c)**
 
 {% endnote %}
 
