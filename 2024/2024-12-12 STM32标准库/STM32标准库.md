@@ -6,6 +6,7 @@ tag:
 - 手册
 categories:
 - STM32
+top_img: false
 cover: https://raw.githubusercontent.com/choomoray/choomoray.github.io/refs/heads/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/%E5%B0%81%E9%9D%A2.webp
 ---
 
@@ -281,10 +282,18 @@ GPIO_InitTypeDef;
 
 <!--tab Speed-->
 
+{%note info no-icon%}
+
+GPIO口的驱动电路响应速度，不是输出信号的速度。
+
+输出信号的速度与程序有关，通过选择速度来选择不同的驱动电路，降低功耗控制噪声。
+
+{%endnote%}
+
 | GPIO_Speed       | 描述               |
 | ---------------- | ------------------ |
 | GPIO_Speed_10MHz | 最高输出速率 10MHz |
-| GPIO_Speed_20MHz | 最高输出速率 20MHz |
+| GPIO_Speed_2MHz  | 最高输出速率 2MHz  |
 | GPIO_Speed_50MHz | 最高输出速率 50MHz |
 
 <!--endtab-->
@@ -1284,7 +1293,9 @@ void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
     AFIO->EXTICR[GPIO_PinSource >> 0x02] &= ~tmp;
     AFIO->EXTICR[GPIO_PinSource >> 0x02] |= (((uint32_t)GPIO_PortSource) << (0x04 * (GPIO_PinSource & (uint8_t)0x03)));
 }
+```
 
+```c
 /**
  * @brief  Selects the Ethernet media interface.
  * @note   This function applies only to STM32 Connectivity line devices.
@@ -1302,6 +1313,8 @@ void GPIO_ETH_MediaInterfaceConfig(uint32_t GPIO_ETH_MediaInterface)
     *(__IO uint32_t *)MAPR_MII_RMII_SEL_BB = GPIO_ETH_MediaInterface;
 }
 ```
+
+
 
 <!--endtab--><!--tab 使用-->
 

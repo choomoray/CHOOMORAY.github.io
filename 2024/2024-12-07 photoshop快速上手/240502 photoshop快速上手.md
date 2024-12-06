@@ -5,6 +5,7 @@ tag:
   - PS
   - PhotoShop
   - 教程
+top_img: false
 cover: https://raw.githubusercontent.com/choomoray/choomoray.github.io/refs/heads/_posts/2024/2024-12-07%20photoshop%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/%E5%B0%81%E9%9D%A2.webp
 ---
 
