@@ -31,25 +31,25 @@ GPIO驱动可以用作多个用途，包括管脚设置，单位设置/重置，
 
 
 
-| 函数名                      | 描述                                                     |
-| --------------------------- | -------------------------------------------------------- |
-| GPIO_DeInit                 | 将外设 GPIOx 寄存器重设为缺省值                          |
-| GPIO_AFIODeInit             | 将复用功能（重映射事件控制和 EXTI 设置）重设为缺省值     |
-| **[GPIO_Init](#GPIO-Init)** | 根据 GPIO_InitStruct 中指定的参数初始化外设 GPIOx 寄存器 |
-| GPIO_StructInit             | 把 GPIO_InitStruct 中的每一个参数按缺省值填入            |
-| GPIO_ReadInputDataBit       | 读取指定端口管脚的输入                                   |
-| GPIO_ReadInputData          | 读取指定的 GPIO 端口输入                                 |
-| GPIO_ReadOutputDataBit      | 读取指定端口管脚的输出                                   |
-| GPIO_ReadOutputData         | 读取指定的 GPIO 端口输出                                 |
-| GPIO_SetBits                | 设置指定的数据端口位                                     |
-| GPIO_ResetBits              | 清除指定的数据端口位                                     |
-| GPIO_WriteBit               | 设置或者清除指定的数据端口位                             |
-| GPIO_Write                  | 向指定 GPIO 数据端口写入数据                             |
-| GPIO_PinLockConfig          | 锁定 GPIO 管脚设置寄存器                                 |
-| GPIO_EventOutputConfig      | 选择 GPIO 管脚用作事件输出                               |
-| GPIO_EventOutputCmd         | 使能或者失能事件输出                                     |
-| GPIO_PinRemapConfig         | 改变指定管脚的映射                                       |
-| GPIO_EXTILineConfig         | 选择 GPIO 管脚用作外部中断线路                           |
+| 函数名                                  | 描述                                                     |
+| --------------------------------------- | -------------------------------------------------------- |
+| **[GPIO_DeInit](#GPIO-DeInit)**         | 将外设 GPIOx 寄存器重设为缺省值                          |
+| **[GPIO_AFIODeInit](#GPIO_AFIODeInit)** | 将复用功能（重映射事件控制和 EXTI 设置）重设为缺省值     |
+| **[GPIO_Init](#GPIO-Init)**             | 根据 GPIO_InitStruct 中指定的参数初始化外设 GPIOx 寄存器 |
+| GPIO_StructInit                         | 把 GPIO_InitStruct 中的每一个参数按缺省值填入            |
+| GPIO_ReadInputDataBit                   | 读取指定端口管脚的输入                                   |
+| GPIO_ReadInputData                      | 读取指定的 GPIO 端口输入                                 |
+| GPIO_ReadOutputDataBit                  | 读取指定端口管脚的输出                                   |
+| GPIO_ReadOutputData                     | 读取指定的 GPIO 端口输出                                 |
+| **[GPIO_SetBits](#GPIO-SetBits)**       | 设置指定的数据端口位                                     |
+| **[GPIO_ResetBits](#GPIO-ResetBits)**   | 清除指定的数据端口位                                     |
+| GPIO_WriteBit                           | 设置或者清除指定的数据端口位                             |
+| GPIO_Write                              | 向指定 GPIO 数据端口写入数据                             |
+| GPIO_PinLockConfig                      | 锁定 GPIO 管脚设置寄存器                                 |
+| GPIO_EventOutputConfig                  | 选择 GPIO 管脚用作事件输出                               |
+| GPIO_EventOutputCmd                     | 使能或者失能事件输出                                     |
+| GPIO_PinRemapConfig                     | 改变指定管脚的映射                                       |
+| GPIO_EXTILineConfig                     | 选择 GPIO 管脚用作外部中断线路                           |
 
 
 
@@ -101,9 +101,60 @@ AFIO_TypeDef;
 
 
 
+## GPIO_DeInit
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | void GPIO_DeInit(GPIO_TypeDef* GPIOx)               |
+| ---------- | --------------------------------------------------- |
+| 功能描述   | 将外设 GPIOx 寄存器重设为缺省值                     |
+| 输入参数   | GPIOx：x 可以是 A，B，C，D 或者 E，来选择 GPIO 外设 |
+| 输出参数   | 无                                                  |
+| 返回值     | 无                                                  |
+| 先决条件   | 无                                                  |
+| 被调用函数 | RCC_APB2PeriphResetCmd()                            |
+
+<!--endtab--> <!--tab 源码-->
+
+
+
+<!--endtab--> <!--tab 使用-->
+
+
+
+<!--endtab-->
+
+{%endtabs%}
+
+## GPIO_AFIODeInit
+
+{%tabs%}
+
+<!--tab 函数-->
+
+
+
+<!--endtab--><!--tab 源码-->
+
+```c
+
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
 ## GPIO_Init
-
-
 
 {%tabs GPIO_Init%}
 
@@ -224,10 +275,6 @@ GPIO_Mode 用以设置选中管脚的工作状态。
 <!--tab 源码-->
 
 ```c
-void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct);
-```
-
-```c
 /**
  * @brief  Initializes the GPIOx peripheral according to the specified
  *         parameters in the GPIO_InitStruct.
@@ -337,3 +384,95 @@ void main(void)
 <!--endtab-->
 
 {% endtabs %}
+
+## GPIO_SetBits
+
+{%tabs GPIO_SetBits%}
+
+<!--tab 函数-->
+
+| 函数原形   | void GPIO_SetBits(GPIO_TypeDef* GPIOx, u16 GPIO_Pin)         |
+| ---------- | ------------------------------------------------------------ |
+| 功能描述   | 设置指定的数据端口位                                         |
+| 输入参数 1 | GPIOx：x 可以是 A，B，C，D 或者 E，来选择 GPIO 外设          |
+| 输入参数 2 | GPIO_Pin：待设置的端口位<br/>该参数可以取 GPIO_Pin_x(x 可以是 0-15)的任意组合 |
+| 输出参数   | 无                                                           |
+| 返回值     | 无                                                           |
+| 先决条件   | 无                                                           |
+| 被调用函数 | 无                                                           |
+
+ <!--endtab--><!--tab 源码-->
+
+```c
+/**
+  * @brief  Sets the selected data port bits.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @param  GPIO_Pin: specifies the port bits to be written.
+  *   This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+  * @retval None
+  */
+void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GPIO_PIN(GPIO_Pin));
+  
+  GPIOx->BSRR = GPIO_Pin;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+GPIO_SetBits(GPIOA, GPIO_Pin_10 | GPIO_Pin_15);
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+## GPIO_ResetBits
+
+{%tabs GPIO_SetBits%}
+
+<!--tab 函数-->
+
+| 函数原形   | void GPIO_ResetBits(GPIO_TypeDef* GPIOx, u16 GPIO_Pin)       |
+| ---------- | ------------------------------------------------------------ |
+| 功能描述   | 清除指定的数据端口位                                         |
+| 输入参数 1 | GPIOx：x 可以是 A，B，C，D 或者 E，来选择 GPIO 外设          |
+| 输入参数 2 | GPIO_Pin：待清除的端口位<br/>该参数可以取 GPIO_Pin_x(x 可以是 0-15)的任意组合 |
+| 输出参数   | 无                                                           |
+| 返回值     | 无                                                           |
+| 先决条件   | 无                                                           |
+| 被调用函数 | 无                                                           |
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+  * @brief  Clears the selected data port bits.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @param  GPIO_Pin: specifies the port bits to be written.
+  *   This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+  * @retval None
+  */
+void GPIO_ResetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GPIO_PIN(GPIO_Pin));
+  
+  GPIOx->BRR = GPIO_Pin;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+GPIO_ResetBits(GPIOA, GPIO_Pin_10 | GPIO_Pin_15);
+```
+
+<!--endtab-->
+
+{%endtabs%}
