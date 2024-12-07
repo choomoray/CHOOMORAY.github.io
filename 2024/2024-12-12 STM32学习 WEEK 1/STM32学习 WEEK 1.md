@@ -17,7 +17,7 @@ top_img: false
 
 <!--tab 模板下载-->
 
-工程创建实在是太复杂了，这边建议直接复制以前写好的工程呢【[工程模板下载](https://github.com/choomoray/choomoray.github.io/raw/refs/heads/file/STM32/STM32%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF.zip)】
+工程创建实在是太复杂了，这边建议直接复制以前写好的工程【[工程模板下载](https://github.com/choomoray/choomoray.github.io/raw/refs/heads/file/STM32/STM32%E5%B7%A5%E7%A8%8B%E6%A8%A1%E6%9D%BF.zip)】
 
 <!--endtab-->
 
@@ -37,33 +37,34 @@ top_img: false
 
 
 
-## 点亮LED
+## 成就：点灯大师
 
-{%tabs 点亮LED%}
+{%tabs 点亮一颗LED%}
 
-<!-- tab 1-->
+<!-- tab 点亮一颗LED-->
 
-STM32学习摒弃了C51单片机的寄存器编程，使用更便捷的标准库函数编程
+{%note no-icon%}
 
-LED小灯有两个针脚，较长的接电源正极，较短的接地
+* STM32最小系统接通电源时，所有的针脚默认高电平
+* LED小灯有两个针脚，较长的接电源正极，较短的接电源负极
 
-STM32最小系统接通电源时，所有的针脚默认高电平，因此想让LED灯亮起共有两种接法：
+{%endnote%}
 
-1. LED长针脚接电源正极，短针脚接STM32
-2. LED短针脚接电源负极，长针脚接STM32
+知道了怎么接电可以让LED点亮，就延申出长短针脚分别接STM32的两种接法，都是正确可行的，但存在些微区别：控制LED亮灭的电平信号不同。
 
-上面两种接法使用到了STM32的两种输出模式，分别是：推挽输出和（...）
+1. 接线：
 
-1. 长针脚接电源正极，电源供能，因此只需要STM32变换端口高低电平就可控制LED灯的亮灭
-2. 长针脚接电源负极，由STM32供能，需要注意的是STM32电压可能不足以让LED亮起，因此需要放大端口电压才能控制LED正常亮灭
+   STM32插在面包板中间，从STM32的GND各VCC接口引出两根线接在面包板一侧的电源线上，LED长脚接在面包板+上，短脚接在STM32 A0口上。
 
-<!--endtab-->
+2. 写程序
+
+   1. 打开GPIOA所在的RCC时钟，想要使用GPIOA端口，首先要打开所在时钟让其运行，据stm32f10x_rcc.c文件知需要使用`RCC_APB2PeriphClockCmd`函数
+   2. 初始化GPIOA，使用到`GPIO_Init`函数
+   3. 设置Pin_0口电平来点亮LED，根据接线赋对应电平。
 
 
 
-
-
-<!-- tab 代码实现-->
+<!--endtab--> <!-- tab 代码实现-->
 
 
 
@@ -87,27 +88,22 @@ int main(void)
 }
 ```
 
-
-
-
-
-<!--endtab-->
-
-
-
-
-
-<!-- tab 要点-->
-
-
-
 <!--endtab-->
 
 {%endtabs%}
 
 
 
+## 感应灯
 
+{%note no-icon%}
+
+<center>项目要求</center>
+
+1. 可以通过按键控制LED亮灭
+2. 暗光环境LED亮起（可通过按键关闭LED）
+
+{%endnote%}
 
 
 

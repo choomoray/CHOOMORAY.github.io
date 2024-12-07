@@ -178,6 +178,78 @@ cover: https://xxx.png # 封面图片
 
 ## Markdown 语法
 
+## HTML 语法
+
+### 字体
+
+#### 大小
+
+```html
+<font size=1>字体大小</font>
+```
+
+
+
+#### 颜色
+
+{%tabs 字体颜色%}
+
+<!--tab 前景色-->
+
+```html
+<font color="blue">文字</font>
+```
+
+```html
+<font color="blue">这是蓝色文字</font>
+<font color="#008000">这是绿色文字</font>
+```
+
+<!--endtab--><!--tab 背景色-->
+
+```html
+<span style="background-color: yellow">背景</span>
+```
+
+```html
+<span style="background-color: yellow">这是黄色背景</span>
+<span style="background-color: #FF0000">这是红色背景</span>
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
+#### 位置
+
+{%tabs 位置, 2%}
+
+<!--tab 左对齐-->
+
+```html
+<p align="left">文字</p>
+```
+
+<!--endtab--><!--tab 居中-->
+
+```html
+<center>文字</center>
+```
+
+<!--endtab--><!--tab 右对齐-->
+
+```html
+<p align="right">文字</p>
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
 # 美化博客
 
 ## 外挂标签
@@ -655,15 +727,46 @@ danger
 
 {%endtabs%}
 
-## HTML 语法
+### TimeLine 时间轴
 
-### 字体
+{%tabs 时间轴%}
 
-#### 大小
+<!--tab 实现-->
 
-#### 颜色
+```markdown
+{% timeline title,color %}
 
-#### 位置
+<!-- timeline title -->
+
+xxxxx
+
+<!-- endtimeline -->
+<!-- timeline title -->
+
+xxxxx
+
+<!-- endtimeline -->
+
+{% endtimeline %}
+```
+
+<!--endtab--> <!--tab 预览-->
+
+{% timeline 2024 %}
+
+<!-- timeline 11-26 -->
+
+这是测试页面
+
+<!-- endtimeline -->
+
+{% endtimeline %}
+
+<!--endtab-->
+
+{%endtabs%}
+
+
 
 ### 折叠框
 
