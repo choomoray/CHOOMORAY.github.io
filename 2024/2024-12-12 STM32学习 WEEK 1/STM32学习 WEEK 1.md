@@ -6,7 +6,6 @@ tag:
 categories: 
 - 学习
 top_img: false
-cover: https://raw.githubusercontent.com/choomoray/choomoray.github.io/refs/heads/_posts/2024/2024-12-12%20STM32%E5%AD%A6%E4%B9%A0%20WEEK%201/%E5%B0%81%E9%9D%A2.webp
 ---
 
 # Day 1 2024-12-06
