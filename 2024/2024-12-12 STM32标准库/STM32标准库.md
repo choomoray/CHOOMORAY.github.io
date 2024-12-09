@@ -1,18 +1,577 @@
 ---
 title: STM32标准库
 date: 2024-12-12
-tag:
-- STM32
-- 手册
+tags:
+ - STM32
+ - 手册
+ - GPIO
+ - EXTI
 categories:
-- STM32
+ - STM32
 top_img: false
 cover: https://raw.githubusercontent.com/choomoray/choomoray.github.io/refs/heads/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/%E5%B0%81%E9%9D%A2.webp
 ---
 
+
+
+# EXTI 外部中断/事件控制器
+
+外部中断/事件控制器由 19 个产生事件/中断要求的边沿检测器组成。每个输入线可以独立地配置输入类型（脉冲或挂起）和对应的触发事件（上升沿或下降沿或者双边沿都触发）。每个输入线都可以被独立的屏蔽。挂起寄存器保持着状态线的中断要求。
+
+
+
+{% tabs EXIT %}
+
+<!-- tab 库函数 -->
+
+{% note 'fab fa-github' modern%}
+
+**[stm32f10x_exti.h](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/Library/stm32f10x_exti.h)**
+
+{% endnote %} {% note 'fab fa-github' modern%}
+
+**[stm32f10x_exti.c](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/Library/stm32f10x_exti.c)**
+
+{% endnote %}
+
+| 函数名                                                    | 描述                                                  |
+| --------------------------------------------------------- | ----------------------------------------------------- |
+| [**EXTI_DeInit**](#EXTI-DeInit)                           | 将外设EXTI寄存器重设为缺省值                          |
+| [**EXTI_Init**](#EXTI-Init)                               | 根据EXTI_InitStruct 中指定的参数初始化外设EXTI 寄存器 |
+| [**EXTI_StructInit**](#EXTI-StructInit)                   | 把EXTI_InitStruct中的每一个参数按缺省值填入           |
+| [**EXTI_GenerateSWInterrupt**](#EXTI-GenerateSWInterrupt) | 产生一个软件中断                                      |
+| [**EXTI_GetFlagStatus**](#EXTI-GetFlagStatus)             | 检查指定的EXTI线路标志位设置与否                      |
+| [**EXTI_ClearFlag**](#EXTI-ClearFlag)                     | 清除 EXTI 线路挂起标志位                              |
+| [**EXTI_GetITStatus**](#EXTI-GetITStatus)                 | 检查指定的EXTI线路触发请求发生与否                    |
+| [**EXTI_ClearITPendingBit**](#EXTI-ClearITPendingBit)     | 清除 EXTI 线路挂起位                                  |
+
+<!--endtab--> <!-- tab 寄存器-->
+
+| 寄存器 | 描述                 |
+| ------ | -------------------- |
+| IMR    | 中断屏蔽寄存器       |
+| EMR    | 事件屏蔽寄存器       |
+| RTSR   | 上升沿触发选择寄存器 |
+| FTSR   | 下降沿触发选择寄存器 |
+| SWIR   | 软件中断事件寄存器   |
+| PR     | 挂起寄存器           |
+
+```c
+typedef struct {
+    vu32 IMR;
+    vu32 EMR;
+    vu32 RTSR;
+    vu32 FTSR;
+    vu32 SWIER;
+    vu32 PR;
+}
+EXTI_TypeDef;
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+## EXTI_DeInit
+
+{%tabs EXTI_DeInit%}
+
+<!--tab 函数-->
+
+| 函数原形   | void EXTI_DeInit(void)       |
+| ---------- | ---------------------------- |
+| 功能描述   | 将外设EXTI寄存器重设为缺省值 |
+| 输入参数   | 无                           |
+| 输出参数   | 无                           |
+| 返回值     | 无                           |
+| 先决条件   | 无                           |
+| 被调用函数 | 无                           |
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Deinitializes the EXTI peripheral registers to their default reset values.
+ * @param  None
+ * @retval None
+ */
+void EXTI_DeInit(void)
+{
+    EXTI->IMR = 0x00000000;
+    EXTI->EMR = 0x00000000;
+    EXTI->RTSR = 0x00000000;
+    EXTI->FTSR = 0x00000000;
+    EXTI->PR = 0x000FFFFF;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+EXTI_DeInit();
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+## EXTI_Init
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | void EXTI_Init(EXTI_InitTypeDef* EXTI_InitStruct)            |
+| ---------- | ------------------------------------------------------------ |
+| 功能描述   | 根据EXTI_InitStruct中指定的参数初始化外设EXTI 寄存器         |
+| 输入参数   | EXTI_InitStruct:指向结构EXTI_InitTypeDef 的指针，包含了外设EXTI 的配置信息 |
+| 输出参数   | 无                                                           |
+| 返回值     | 无                                                           |
+| 先决条件   | 无                                                           |
+| 被调用函数 | 无                                                           |
+
+### EXTI_InitTypeDef structure
+
+```c
+typedef struct {
+    u32 EXTI_Line;
+    EXTIMode_TypeDef EXTI_Mode;
+    EXTIrigger_TypeDef EXTI_Trigger;
+    FunctionalState EXTI_LineCmd;
+}
+EXTI_InitTypeDef;
+```
+
+{%tabs EXTI_InitTypeDef, 3%}
+
+<!--tab Line-->
+
+| EXTI_Line    | 描述         |
+| ------------ | ------------ |
+| EXTI_Line0   | 外部中断线0  |
+| EXTI Line1   | 外部中断线1  |
+| EXTI_Line2   | 外部中断线2  |
+| EXTI_Line3   | 外部中断线3  |
+| EXTI _Line4  | 外部中断线4  |
+| EXTI Line5   | 外部中断线5  |
+| EXTI_Line6   | 外部中断线6  |
+| EXTI Line7   | 外部中断线7  |
+| EXTI _Line8  | 外部中断线8  |
+| EXTI Line9   | 外部中断线9  |
+| EXTI_Line10  | 外部中断线10 |
+| EXTI_Line11  | 外部中断线11 |
+| EXTI _Line12 | 外部中断线12 |
+| EXTI _Line13 | 外部中断线13 |
+| EXTI_Line14  | 外部中断线14 |
+| EXTI_Line15  | 外部中断线15 |
+| EXTI _Line16 | 外部中断线16 |
+| EXTI_Line17  | 外部中断线17 |
+| EXTI _Line18 | 外部中断线18 |
+
+<!--endtab--> <!--tab Mode-->
+
+| EXTI Mode            | 描述                     |
+| -------------------- | ------------------------ |
+| EXTI_Mode_Event      | 设置 EXTI 线路为事件请求 |
+| EXTI_ Mode_Interrupt | 设置 EXTI线路为中断请求  |
+
+<!--endtab--> <!--tab Trigger-->
+
+| EXTI_Trigger                 | 描述                                 |
+| ---------------------------- | ------------------------------------ |
+| EXTI_Trigger_Falling         | 设置输入线路下降沿为中断请求         |
+| EXTI_Trigger_Rising          | 设置输入线路上升沿为中断请求         |
+| EXTI_Trigger_ Rising Falling | 设置输入线路上升沿和下降沿为中断请求 |
+
+<!--endtab-->
+
+{%endtabs%}
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Initializes the EXTI peripheral according to the specified
+ *         parameters in the EXTI_InitStruct.
+ * @param  EXTI_InitStruct: pointer to a EXTI_InitTypeDef structure
+ *         that contains the configuration information for the EXTI peripheral.
+ * @retval None
+ */
+void EXTI_Init(EXTI_InitTypeDef *EXTI_InitStruct)
+{
+    uint32_t tmp = 0;
+
+    /* Check the parameters */
+    assert_param(IS_EXTI_MODE(EXTI_InitStruct->EXTI_Mode));
+    assert_param(IS_EXTI_TRIGGER(EXTI_InitStruct->EXTI_Trigger));
+    assert_param(IS_EXTI_LINE(EXTI_InitStruct->EXTI_Line));
+    assert_param(IS_FUNCTIONAL_STATE(EXTI_InitStruct->EXTI_LineCmd));
+
+    tmp = (uint32_t)EXTI_BASE;
+
+    if (EXTI_InitStruct->EXTI_LineCmd != DISABLE)
+    {
+        /* Clear EXTI line configuration */
+        EXTI->IMR &= ~EXTI_InitStruct->EXTI_Line;
+        EXTI->EMR &= ~EXTI_InitStruct->EXTI_Line;
+
+        tmp += EXTI_InitStruct->EXTI_Mode;
+
+        *(__IO uint32_t *)tmp |= EXTI_InitStruct->EXTI_Line;
+
+        /* Clear Rising Falling edge configuration */
+        EXTI->RTSR &= ~EXTI_InitStruct->EXTI_Line;
+        EXTI->FTSR &= ~EXTI_InitStruct->EXTI_Line;
+
+        /* Select the trigger for the selected external interrupts */
+        if (EXTI_InitStruct->EXTI_Trigger == EXTI_Trigger_Rising_Falling)
+        {
+            /* Rising Falling edge */
+            EXTI->RTSR |= EXTI_InitStruct->EXTI_Line;
+            EXTI->FTSR |= EXTI_InitStruct->EXTI_Line;
+        }
+        else
+        {
+            tmp = (uint32_t)EXTI_BASE;
+            tmp += EXTI_InitStruct->EXTI_Trigger;
+
+            *(__IO uint32_t *)tmp |= EXTI_InitStruct->EXTI_Line;
+        }
+    }
+    else
+    {
+        tmp += EXTI_InitStruct->EXTI_Mode;
+
+        /* Disable the selected external lines */
+        *(__IO uint32_t *)tmp &= ~EXTI_InitStruct->EXTI_Line;
+    }
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+EXTI_InitTypeDef EXTI_InitStructure;
+EXTI_InitStructure.EXTI_Line = EXTI_Line12 | EXTI_Line14;
+EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+EXTI_Init(&EXTI_InitStructure);
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
+## EXTI_StructInit
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | void EXTI_StructInit(EXTI_InitTypeDef*EXTI_InitStruct)      |
+| ---------- | ----------------------------------------------------------- |
+| 功能描述   | 把 EXTI_InitStruct 中的每一个参数按缺省值填入               |
+| 输入参数   | EXTI InitStruct：指向结构 EXTI InitTypeDef 的指针，待初始化 |
+| 输出参数   | 无                                                          |
+| 返回值     | 无                                                          |
+| 先决条件   | 无                                                          |
+| 被调用函数 | 无                                                          |
+
+| 成员         | EXTI_InitStruct 缺省值 |
+| ------------ | ---------------------- |
+| EXTI Line    | EXTI LineNone          |
+| EXTI Mode    | EXTI Mode Interrupt    |
+| EXTI Trigger | EXTI Trigger Falling   |
+| EXTI LineCmd | DISABLE                |
+
+
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Fills each EXTI_InitStruct member with its reset value.
+ * @param  EXTI_InitStruct: pointer to a EXTI_InitTypeDef structure which will
+ *         be initialized.
+ * @retval None
+ */
+void EXTI_StructInit(EXTI_InitTypeDef *EXTI_InitStruct)
+{
+    EXTI_InitStruct->EXTI_Line = EXTI_LINENONE;
+    EXTI_InitStruct->EXTI_Mode = EXTI_Mode_Interrupt;
+    EXTI_InitStruct->EXTI_Trigger = EXTI_Trigger_Falling;
+    EXTI_InitStruct->EXTI_LineCmd = DISABLE;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+EXTI_InitTypeDef EXTI_InitStructure;
+EXTI_StructInit(&EXTI_InitStructure);
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
+## EXTI_GenerateSWInterrupt
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | void EXTI_GenerateSWInterrupt(u32 EXTI_Line) |
+| ---------- | -------------------------------------------- |
+| 功能描述   | 产生一个软件中断                             |
+| 输入参数   | EXTI_Line：待使能或者失能的 EXTI 线路        |
+| 输出参数   | 无                                           |
+| 返回值     | 无                                           |
+| 先决条件   | 无                                           |
+| 被调用函数 | 无                                           |
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Generates a Software interrupt.
+ * @param  EXTI_Line: specifies the EXTI lines to be enabled or disabled.
+ *   This parameter can be any combination of EXTI_Linex where x can be (0..19).
+ * @retval None
+ */
+void EXTI_GenerateSWInterrupt(uint32_t EXTI_Line)
+{
+    /* Check the parameters */
+    assert_param(IS_EXTI_LINE(EXTI_Line));
+
+    EXTI->SWIER |= EXTI_Line;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+EXTI_GenerateSWInterrupt(EXTI_Line6);
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
+## EXTI_GetFlagStatus
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | FlagStatus EXTI_GetFlagStatus(u32 EXTI_Line) |
+| ---------- | -------------------------------------------- |
+| 功能描述   | 检查指定的EXTI线路标志位设置与否             |
+| 输入参数   | EXTI_Line：待检查的EXTI 线路标志位           |
+| 输出参数   | 无                                           |
+| 返回值     | EXTI_Line 的新状态(SET 或者 RESET)           |
+| 先决条件   | 无                                           |
+| 被调用函数 | 无                                           |
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Checks whether the specified EXTI line flag is set or not.
+ * @param  EXTI_Line: specifies the EXTI line flag to check.
+ *   This parameter can be:
+ *     @arg EXTI_Linex: External interrupt line x where x(0..19)
+ * @retval The new state of EXTI_Line (SET or RESET).
+ */
+FlagStatus EXTI_GetFlagStatus(uint32_t EXTI_Line)
+{
+    FlagStatus bitstatus = RESET;
+    /* Check the parameters */
+    assert_param(IS_GET_EXTI_LINE(EXTI_Line));
+
+    if ((EXTI->PR & EXTI_Line) != (uint32_t)RESET)
+    {
+        bitstatus = SET;
+    }
+    else
+    {
+        bitstatus = RESET;
+    }
+    return bitstatus;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+FlagStatus EXTIStatus;
+EXTIStatus = EXTI_GetFlagStatus(EXTI_Line8);
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
+## EXTI_ClearFlag
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | void EXTI_ClearFlag(u32 EXTI_Line)  |
+| ---------- | ----------------------------------- |
+| 功能描述   | 清除 EXTI线路挂起标志位             |
+| 输入参数   | EXTI_Line：待清除标志位的 EXTI 线路 |
+| 输出参数   | 无                                  |
+| 返回值     | 无                                  |
+| 先决条件   | 无                                  |
+| 被调用函数 | 无                                  |
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Clears the EXTI's line pending flags.
+ * @param  EXTI_Line: specifies the EXTI lines flags to clear.
+ *   This parameter can be any combination of EXTI_Linex where x can be (0..19).
+ * @retval None
+ */
+void EXTI_ClearFlag(uint32_t EXTI_Line)
+{
+    /* Check the parameters */
+    assert_param(IS_EXTI_LINE(EXTI_Line));
+
+    EXTI->PR = EXTI_Line;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+EXTI_ClearFlag(EXTI_Line2);
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
+## EXTI_GetITStatus
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | ITStatus EXTI_GetITStatus(u32 EXTI_Line) |
+| ---------- | ---------------------------------------- |
+| 功能描述   | 检查指定的EXTI线路触发请求发生与否       |
+| 输入参数   | EXTI_Line：待检查EXTI 线路的挂起位       |
+| 输出参数   | 无                                       |
+| 返回值     | EXTI_Line 的新状态（SET 或者 RESET)      |
+| 先决条件   | 无                                       |
+| 被调用函数 | 无                                       |
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Checks whether the specified EXTI line is asserted or not.
+ * @param  EXTI_Line: specifies the EXTI line to check.
+ *   This parameter can be:
+ *     @arg EXTI_Linex: External interrupt line x where x(0..19)
+ * @retval The new state of EXTI_Line (SET or RESET).
+ */
+ITStatus EXTI_GetITStatus(uint32_t EXTI_Line)
+{
+    ITStatus bitstatus = RESET;
+    uint32_t enablestatus = 0;
+    /* Check the parameters */
+    assert_param(IS_GET_EXTI_LINE(EXTI_Line));
+
+    enablestatus = EXTI->IMR & EXTI_Line;
+    if (((EXTI->PR & EXTI_Line) != (uint32_t)RESET) && (enablestatus != (uint32_t)RESET))
+    {
+        bitstatus = SET;
+    }
+    else
+    {
+        bitstatus = RESET;
+    }
+    return bitstatus;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+ITStatus EXTIStatus;
+EXTIStatus = EXTI_GetITStatus(EXTI_Line8);
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
+## EXTI_ClearITPendingBit
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | void EXTI_ClearITPendingBit(u32 EXTI_Line) |
+| ---------- | ------------------------------------------ |
+| 功能描述   | 清除EXTI线路挂起位                         |
+| 输入参数   | EXTI_Line：待清除EXTI 线路的挂起位         |
+| 输出参数   | 无                                         |
+| 返回值     | 无                                         |
+| 先决条件   | 无                                         |
+| 被调用函数 | 无                                         |
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Clears the EXTI's line pending bits.
+ * @param  EXTI_Line: specifies the EXTI lines to clear.
+ *   This parameter can be any combination of EXTI_Linex where x can be (0..19).
+ * @retval None
+ */
+void EXTI_ClearITPendingBit(uint32_t EXTI_Line)
+{
+    /* Check the parameters */
+    assert_param(IS_EXTI_LINE(EXTI_Line));
+
+    EXTI->PR = EXTI_Line;
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+EXTI_ClearITpendingBit(EXTI_Line2);
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
 # GPIO通用输入/输出
 
-GPIO驱动可以用作多个用途，包括管脚设置，单位设置/重置，锁定机制，从端口管脚读入或者向端口管脚写入数据
+GPIO驱动可以用作多个用途，包括管脚设置，单位设置/重置，锁定机制，从端口管脚读入或者向端口管脚写入数据。
 
 
 
@@ -84,6 +643,7 @@ typedef struct {
     vu32 LCKR;
 }
 GPIO_TypeDef;
+
 typedef struct {
     vu32 EVCR;
     vu32 MAPR;
@@ -1325,4 +1885,404 @@ GPIO_EXTILineConfig(GPIO_PortSource_GPIOB, GPIO_PinSource8);
 <!--endtab-->
 
 {%endtabs%}
+
+
+
+# RCC 复位和时钟设置
+
+RCC 有多种用途，包括时钟设置，外设复位和时钟管理。
+
+{% tabs GPIO %}
+
+<!-- tab 库函数 -->
+
+{% note 'fab fa-github' modern%}
+
+**[stm32f10x_rcc.h](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/Library/stm32f10x_rcc.h)**
+
+{% endnote %} {% note 'fab fa-github' modern%}
+
+**[stm32f10x_rcc.c](https://github.com/choomoray/choomoray.github.io/blob/_posts/2024/2024-12-12%20STM32%E6%A0%87%E5%87%86%E5%BA%93/Library/stm32f10x_rcc.c)**
+
+{% endnote %}
+
+| **函数名**                     | **描述**                            |
+| ------------------------------ | ----------------------------------- |
+| **[RCC _DeInit](#RCC-DeInit)** | 将外设RCC 寄存器重设为缺省值        |
+| RCC_HSEConfig                  | 设置外部高速晶振(HSE)               |
+| RCC_WaitForHSEStartUp          | 等待HSE起振                         |
+| RCC_AdjustHSICalibrationValue  | 调整内部高速晶振（HSI）校准值       |
+| RCC _HSICmd                    | 使能或者失能内部高速晶振(HSI)       |
+| RCC_PLLConfig                  | 设置 PLL 时钟源及倍频系数           |
+| RCC_PLLCmd                     | 使能或者失能 PLL                    |
+| RCC_SYSCLKConfig               | 设置系统时钟（SYSCLK)               |
+| RCC_GetSYSCLKSource            | 返回用作系统时钟的时钟源            |
+| RCC_HCLKConfig                 | 设置AHB 时钟（HCLK)                 |
+| RCC_PCLK1Config                | 设置低速AHB 时钟（PCLK1)            |
+| RCC_PCLK2Config                | 设置高速AHB 时钟（PCLK2)            |
+| RCC_ITConfig                   | 使能或者失能指定的 RCC 中断         |
+| RCC_USBCLKConfig               | 设置USB 时钟(USBCLK)                |
+| RCC_ADCCLKConfig               | 设置 ADC 时钟（ADCCLK)              |
+| RCC_LSEConfig                  | 设置外部低速晶振 (LSE)              |
+| RCC_LSICmd                     | 使能或者失能内部低速晶振 (LSI)      |
+| RCC _RTCCLKConfig              | 设置RTC 时钟 (RTCCLK)               |
+| RCC_RTCCLKCmd                  | 使能或者失能 RTC 时钟               |
+| RCC_GetClocksFreq              | 返回不同片上时钟的频率              |
+| RCC_AHBPeriphClockCmd          | 使能或者失能 AHB 外设时钟           |
+| RCC_APB2PeriphClockCmd         | 使能或者失能 APB2外设时钟           |
+| RCC_APB1PeriphClockCmd         | 使能或者失能 APB1 外设时钟          |
+| RCC_APB2PeriphResetCmd         | 强制或者释放高速APB（APB2）外设复位 |
+| RCC_APB1PeriphResetCmd         | 强制或者释放低速APB（APB1）外设复位 |
+| RCC_BackupResetCmd             | 强制或者释放后备域复位              |
+| RCC_ClockSecuritySystemCmd     | 使能或者失能时钟安全系统            |
+| RCC _MCOConfig                 | 选择在MCO管脚上输出的时钟源         |
+| RCC_GetFlagStatus              | 检查指定的 RCC 标志位设置与否       |
+| RCC_ClearFlag                  | 清除RCC的复位标志位                 |
+| RCC_GetITStatus                | 检查指定的 RCC 中断发生与否         |
+| RCC _ClearITPendingBit         | 清除 RCC 的中断待处理位             |
+
+<!--endtab--> <!-- tab 寄存器 -->
+
+| 寄存器   | 描述                    |
+| -------- | ----------------------- |
+| CR       | 时钟控制寄存器          |
+| CFGR     | 时钟配置寄存器          |
+| CIR      | 时钟中断寄存器          |
+| APB2RSTR | APB2 外设复位寄存器     |
+| APB1RSTR | APB1外设复位寄存器      |
+| AHBENR   | AHB 外设时钟使能寄存器  |
+| APB2ENR  | APB2 外设时钟使能寄存器 |
+| APB1ENR  | APB1 外设时钟使能寄存器 |
+| BDCR     | 备份域控制寄存器        |
+| CSR      | 控制/状态寄存器         |
+
+```c
+typedef struct {
+    vu32 CR;
+    vu32 CFGR;
+    vu32 CIR;
+    vu32 APB2RSTR;
+    vu32 APB1RSTR;
+    vu32 AHBENR;
+    vu32 APB2ENR;
+    vu32 APB1ENR;
+    vu32 BDCR;
+    vu32 CSR;
+}
+RCC_TypeDef;
+```
+
+RCC 外设声明于 文件stm32f10x_map.h：
+
+```c
+#define PERIPH_BASE((u32) 0x40000000)
+#define APB1PERIPH_BASE PERIPH_BASE
+#define APB2PERIPH_BASE(PERIPH_BASE + 0x10000)
+#define AHBPERIPH_BASE(PERIPH_BASE + 0x20000)
+#define RCC_BASE(AHBPERIPH_BASE + 0x1000)
+#ifndef DEBUG
+    ...
+    #ifdef _RCC
+#define RCC((RCC_TypeDef * ) RCC_BASE)
+#endif /*_RCC */
+    ...
+    #else /* DEBUG */
+    ...
+    #ifdef _RCC
+EXT RCC_TypeDef * RCC;
+#endif /*_RCC */
+    ...
+    #endif
+```
+
+使用Debug模式时，初始化指针RCC于文件stm32f10x_lib.c：
+
+```c
+#ifdef _RCC
+RCC = (RCC_TypeDef *) RCC_BASE;
+#endif /*_RCC */
+```
+
+为了访问RCC寄存器，_RCC必须在文件stm32f10x_conf.h中定义如下：
+
+```c
+#define _RCC
+```
+
+<!--endtab-->
+
+{% endtabs %}
+
+
+
+## RCC_DeInit
+
+{%tabs%}
+
+<!--tab 函数-->
+
+| 函数原形   | void RCC_DeInit(void)        |
+| ---------- | ---------------------------- |
+| 功能描述   | 将外设RCC 寄存器重设为缺省值 |
+| 输入参数   | 无                           |
+| 输出参数   | 无                           |
+| 返回值     | 无                           |
+| 先决条件   | 无                           |
+| 被调用函数 | 无                           |
+
+{%note info no-icon%}
+
+1. 该函数不改动寄存器 RCC_CR 的 HSITRIM[4:0]位。
+2. 该函数不重置寄存器 RCC_BDCR 和寄存器 RCC_CSR。
+
+{%endnote%}
+
+<!--endtab--><!--tab 源码-->
+
+```c
+/**
+ * @brief  Resets the RCC clock configuration to the default reset state.
+ * @param  None
+ * @retval None
+ */
+void RCC_DeInit(void)
+{
+    /* Set HSION bit */
+    RCC->CR |= (uint32_t)0x00000001;
+
+    /* Reset SW, HPRE, PPRE1, PPRE2, ADCPRE and MCO bits */
+#ifndef STM32F10X_CL
+    RCC->CFGR &= (uint32_t)0xF8FF0000;
+#else
+    RCC->CFGR &= (uint32_t)0xF0FF0000;
+#endif /* STM32F10X_CL */
+
+    /* Reset HSEON, CSSON and PLLON bits */
+    RCC->CR &= (uint32_t)0xFEF6FFFF;
+
+    /* Reset HSEBYP bit */
+    RCC->CR &= (uint32_t)0xFFFBFFFF;
+
+    /* Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE/OTGFSPRE bits */
+    RCC->CFGR &= (uint32_t)0xFF80FFFF;
+
+#ifdef STM32F10X_CL
+    /* Reset PLL2ON and PLL3ON bits */
+    RCC->CR &= (uint32_t)0xEBFFFFFF;
+
+    /* Disable all interrupts and clear pending bits  */
+    RCC->CIR = 0x00FF0000;
+
+    /* Reset CFGR2 register */
+    RCC->CFGR2 = 0x00000000;
+#elif defined(STM32F10X_LD_VL) || defined(STM32F10X_MD_VL) || defined(STM32F10X_HD_VL)
+    /* Disable all interrupts and clear pending bits  */
+    RCC->CIR = 0x009F0000;
+
+    /* Reset CFGR2 register */
+    RCC->CFGR2 = 0x00000000;
+#else
+    /* Disable all interrupts and clear pending bits  */
+    RCC->CIR = 0x009F0000;
+#endif /* STM32F10X_CL */
+}
+```
+
+<!--endtab--><!--tab 使用-->
+
+```c
+RCC_DeInit();
+```
+
+<!--endtab-->
+
+{%endtabs%}
+
+
+
+## RCC_HSEConfig
+
+
+
+
+
+## RCC_WaitForHSEStartUp
+
+
+
+
+
+## RCC_AdjustHSICalibrationValue
+
+
+
+
+
+## RCC_HSICmd
+
+
+
+
+
+## RCC_PLLConfig
+
+
+
+
+
+## RCC_PLLCmd
+
+
+
+
+
+## RCC_SYSCLKConfig
+
+
+
+
+
+## RCC_GetSYSCLKSource
+
+
+
+
+
+## RCC_HCLKConfig
+
+
+
+
+
+## RCC_PCLK1Config
+
+
+
+
+
+## RCC_PCLK2Config
+
+
+
+
+
+## RCC_ITConfig
+
+
+
+
+
+## RCC_USBCLKConfig
+
+
+
+
+
+## RCC_ADCCLKConfig
+
+
+
+
+
+## RCC_LSECofig
+
+
+
+
+
+## RCC_LSECmd
+
+
+
+
+
+## RCC_RTCCLKConfig
+
+
+
+
+
+## RCC_RTCCLKCmd
+
+
+
+
+
+## RCC_GetClocksFreq
+
+
+
+
+
+## RCC_AHBPeriphClockCmd
+
+
+
+
+
+## RCC_APB2PeriphClockCmd
+
+
+
+
+
+## RCC_APB1PeriphClockCmd
+
+
+
+
+
+## RCC_APB2PeriphResetCmd
+
+
+
+
+
+## RCC_APB1PeriphResetCmd
+
+
+
+
+
+## RCC_BackupResetCmd
+
+
+
+
+
+## RCC_ClockSecuritySystemCmd
+
+
+
+
+
+## RCC_MCOConfig
+
+
+
+
+
+## RCC_GetFlagStatus
+
+
+
+
+
+## RCC_ClearFlag
+
+
+
+
+
+## RCC_GetITStatus
+
+
+
+
+
+## RCC_ClearITPendingBit
+
+
+
+
 
