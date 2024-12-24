@@ -31,6 +31,10 @@ cover: https://raw.githubusercontent.com/choomoray/choomoray.github.io/refs/head
 
 主要使用`Markdown`格式写博客，出于美化缘故，一些语法会有一丝丝不同。
 
+
+
+https://leuncle.com/posts/3108417008.html
+
 ## 前言 Front-matter
 
 在文章最上方使用`---`可填写文章页面配置信息Front-matter
@@ -944,7 +948,17 @@ npm install	// 初始化成功了就不需要再执行这步了
    branch: blog	// 可以不写，默认保存到 Github 仓库的 master 分支中
    ```
 
-<!-- endtab -->
+<!-- endtab --> <!-- tab Typora -->
+
+
+
+好用的 Markdown 编辑器！可直接前往[官网](https://typoraio.cn/)下载最新版安装。
+
+将 [node_inject.exe]()、[license-gen.exe]() 放到 Typora 的安装目录，使用Power Shell（管理员）依次运行，将生成的序列号填入 Typora 即可。
+
+
+
+<!--endtab-->
 
 {% endtabs %}
 
