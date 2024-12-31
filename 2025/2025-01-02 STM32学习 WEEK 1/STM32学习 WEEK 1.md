@@ -1,6 +1,6 @@
 ---
 title: STM32 学习 WEEK 1
-date: 2024-12-06
+date: 2025-01-02
 tag:
 - STM32
 categories: 
@@ -102,6 +102,7 @@ int main(void)
 
 1. 可以通过按键控制LED亮灭
 2. 暗光环境LED亮起（可通过按键关闭LED）
+3. 使用**定时器**而非Delay函数
 
 {%endnote%}
 
